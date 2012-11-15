@@ -1,0 +1,2 @@
+Home page != blog posts: source/index.html -> source/blog/index.html
+My custom navigation: source/_includes/custom/navigation.html

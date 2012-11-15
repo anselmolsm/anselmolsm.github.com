@@ -1,2 +1,30 @@
-// This File is imported last, and will override other styles in the cascade
-// Add styles here to make changes without digging in too much
+// ---- Remove all links underlines ----
+a:link {text-decoration:none;}
+a:visited {text-decoration:none;}
+a:hover {text-decoration:underline;}
+a:active {text-decoration:underline;}
+
+// ---- customizing article: sass/partials/_blog.scss ----
+article {
+  padding-top: 0em;
+  header {
+    padding-top: 0em;
+    padding-bottom: 1em;
+    margin-bottom: 1em;
+    .entry-title { font-size: 1.5em; }
+  }
+
+  ul>li {
+  	margin-left:20px;
+  }
+}
+
+// ---- customizing footer: sass/partials/_footer.scss ----
+body > footer {
+  p { text-align: center }
+}
+
+// --- customizing sass/base/_typography.scss ---
+body > header h1 {
+  font-size: 1.5em;
+}

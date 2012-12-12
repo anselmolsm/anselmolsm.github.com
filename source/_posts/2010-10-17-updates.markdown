@@ -1,0 +1,28 @@
+---
+layout: post
+title: Updates
+tags:
+- devnet
+- en
+- GPSL
+- INdT
+- KDE
+- photo
+- Qt
+- talk
+---
+Looooong time since my last post. Before writing about new things, an overview of what happened since June:
+
+  * In August, I went to the [Belo Horizonte Free Software Festival](http://fslbh.org/) (in [Betim](http://en.wikipedia.org/wiki/Betim) =), where I presented an introductory talk about F/OSS and KDE. It was a nice opportunity to explain some basic concepts to a beginner but very interested public. Thanks [KDE e.V.](http://ev.kde.org) for the support and to the FSLBH organizers!
+  * I moved to another apartment (second time this year).
+  * I did **not** go to Akademy =(
+  * Our interns developed a simple, but nice, comics-reader as part of their studies to learn Qt. The source code is [here](http://github.com/dakerfp/comics-reader) and there is a Maemo 5 package [here](http://maemo.org/packages/package_instance/view/fremantle_extras-devel_free_armel/comics-reader/1.0.0-1/).
+  * Two of our cute [demos from the last year](http://blog.morpheuz.cc/01/12/2009/qt-4-6-ow/) grew up and became applications. The updated sources are available [here](http://qt.gitorious.org/qt-labs/mobile-demos/commits/shoppinglist-app) and [here](http://gitorious.org/mobile-weather). Kudos to the guys who made it possible!
+  * I've been working in the development of [kdepim-mobile](http://dot.kde.org/2010/06/10/kde-pim-goes-mobile) and, in parallel, I'm following the development of [Qt-Components](http://qt.gitorious.org/qt-components). It is interesting because kdepim-mobile is trying to to use QML as much as possible for the UI, what provides interesting feedback to Qt-Components.
+  * Patches for the widgets explorer. Since I started using a vertical panel on the right, I found some bugs and things to improve.
+  * I'm enjoying the [Qt Developer Network](http://developer.qt.nokia.com/) - More about it in a future post :-)
+  * Some airport and flight minutes were dedicated to do a first translation of [Enzyme](http://enzyme.commit-digest.org/) and [Commit-digest](http://commit-digest.org/) to pt_BR. As I am not a translator, it's time to request help for the pt_BR translation team =)
+
+Someone said a few weeks ago that a good post must have a picture. Here is a picture of the Municipal Park and the  "[Hippie Fair](http://www.tripadvisor.com.br/ShowUserReviews-g303374-d1523606-r38551748-Hippie_Fair-Belo_Horizonte_State_of_Minas_Gerais.html)", in [Belo Horizonte](http://en.wikipedia.org/wiki/Belo_Horizonte):
+
+{% imagec c /blog/images/2010/10/bh.jpg /blog/images/2010/10/bh.jpg 640 360 "Belo Horizonte" %}

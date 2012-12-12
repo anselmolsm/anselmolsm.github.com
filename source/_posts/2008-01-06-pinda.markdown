@@ -1,0 +1,20 @@
+---
+layout: post
+title: Pinda?
+tags:
+- Misc
+- pt_BR
+---
+Tarde de domingo, eu dirigindo aleatoriamente por Campinas, paro o carro em um semáforo na Av. José Bonifácio. Eis que uma voz vinda de um carro ao lado:
+
+ * ??:  - Você é de Pinda? (NOTA: O cara não divinhou, olhou na placa do carro =P )
+ * Eu: - É, sou.... (!?)
+ * ??:  - Olha aí o nome dessa rua do cruzamento.
+ * Eu: - Nossa, hehehe.
+ * ??:  - E o Alckmin, tá bem?
+
+Daí o semáforo abriu. Bom, depois desse diálogo inesperado, tive que tirar foto hehhe...
+
+{% img center /blog/images/2008/05/pinda2.jpg 400 300 %}
+
+{% img center /blog/images/2008/05/pinda1.jpg 400 300 %}

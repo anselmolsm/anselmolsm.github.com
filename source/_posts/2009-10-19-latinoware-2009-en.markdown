@@ -1,0 +1,21 @@
+---
+layout: post
+title: Latinoware 2009
+tags:
+- en
+- INdT
+- KDE
+- openBossa
+- Qt
+---
+Next Thursday, October 22nd begins the 6th edition of the [Latin American Free Software Conference - Latinoware](http://www.latinoware.org) and we are going to be there =)
+
+About 3900 people are already registered for the event and personally I expect a great opportunity to meet people, some of them I only know from IRC or mailing lists, maybe new partners for [Qt Labs Americas](http://qtlabs.openbossa.org/) in other countries of Latin America =) and also a chance  to learn new things.
+
+Learn and teach a little! =) If you take a look in the conference's program you will see that some colleages are going to speak there. Artur de Souza ([MoRpHeuz](http://blog.morpheuz.cc/)) will present an updated version of his talk about Plasma Netbook (including a cool demonstration =). In [Caio Marcelo](http://blog.cmarcelo.org/)'s' and [Eduardo Fleury](http://blog.eduardofleury.com/)'s talk, the attendants will see what are the new possibilities in graphical interfaces development with Qt (and for KDE). Another openBossa speaker is [Kenneth Christiansen](http://codeposts.blogspot.com/) with a presentation about QtWebKit.
+
+People interested in learn how to develop with Qt and KDE will have a great opportunity because there are 2 courses by the guys of [Live Blue](http://liveblue.wordpress.com/). In the last day (Saturday October,24th) [Jesus Sanchez-Palencia](http://wouwlabs.com/blogs/jeez) and me are going to head a course on the new Qt 4.6 APIs .
+
+Besides the mentioned ones, Ana Cecília ([annieC](http://www.wouwlabs.com/blogs/anniec/)) will talk about an usability study on FOSS.
+
+So, if you are going to Foz do Iguaçú, see you there! =) And if you won't go, stay tuned for the news.

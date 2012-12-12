@@ -1,0 +1,14 @@
+---
+layout: post
+title: hein?
+tags:
+- Misc
+- pt_BR
+---
+Eu aqui em casa, um frio danado, eis que alguém passa na rua gritando:
+
+```
+Eu to pelado! Eu to pelado!
+```
+
+eita...

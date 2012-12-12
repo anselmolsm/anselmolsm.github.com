@@ -1,0 +1,16 @@
+---
+layout: post
+title: tchau!
+tags:
+- beijing2008
+- brasil
+- futebol
+- Misc
+- photo
+- pt_BR
+---
+Tchau, Dunga!
+
+{% img center /blog/images/2008/08/gaylordnelsonwavesbyebye.jpg %}
+
+(foto extraída de [http://www.xmms.org/old_news.php](http://www.xmms.org/old_news.php) - Bye Bye Gentoo!)

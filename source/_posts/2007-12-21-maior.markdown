@@ -1,0 +1,10 @@
+---
+layout: post
+title: Maior??
+tags:
+- Misc
+- pt_BR
+---
+{% img center /blog/images/2008/05/nx.png 408 50 %}
+
+O Myspace Brasil deu uma exagerada nisso aí, não?

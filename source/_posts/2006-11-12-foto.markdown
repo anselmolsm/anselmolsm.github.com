@@ -1,0 +1,10 @@
+---
+layout: post
+title: Foto
+tags:
+- Misc
+- pt_BR
+---
+Para dar uma alegrada nos posts do dia, uma foto que tirei ontém (sábado) cedo:
+
+{% img center /blog/images/2008/05/aulus-reduzida.jpg 400 300 %}

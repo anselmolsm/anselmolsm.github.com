@@ -1,0 +1,7 @@
+---
+layout: post
+title: hehe
+tags:
+- Misc
+---
+{% img center /blog/images/2008/05/sense.jpg 340 400 %}

@@ -1,0 +1,11 @@
+---
+layout: post
+title: Av. Brasil
+tags:
+- Misc
+- pt_BR
+---
+
+{% imagec c /blog/images/2008/05/avbrasil.jpg /blog/images/2008/05/avbrasil.jpg 400 300 "Avenida Brasil, Campinas" %}
+
+Mais uma foto tirada durante as andanças das manhãs de sábado. Dessa vez não é de Barão Geraldo. Essa é a Av. Brasil, perto do cruzamento com a Barão de Itapura. Isso tudo fica no caminho de Barão para o centro de Campinas. (25/11/2006)

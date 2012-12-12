@@ -1,0 +1,21 @@
+---
+layout: post
+title: Wii x Wee
+tags:
+- pt_BR
+- Video
+---
+Não confunda:
+
+{% img center /blog/images/2008/05/wii.jpg 400 333 %}
+
+com:
+
+{% img center /blog/images/2008/05/wee.jpg 400 300 %}
+
+
+Aproveitando o tema "gato por lebre", com vocês o sensacional tPhone! (mesmo que atrasado ainda vale a pena registrar esse momento)
+
+{% youtube F1haOlYrtuE %}
+
+E caso você não tenha visto, [vídeo cômico sobre as funções do "verdadeiro" iPhone](http://www.anselmolsm.org/blog/aproveitando-o-embalo).

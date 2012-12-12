@@ -1,0 +1,16 @@
+---
+layout: post
+title: Canal 36
+tags:
+- fail
+- Misc
+- net
+- pt_BR
+- w2k
+- windera
+---
+Madrugada, mudando de canais na NET.... eis que no canal 36 o Windão dando aquela rebootada esperta pra ficar beleza pra um novo dia....
+
+{% img center /blog/images/2008/12/dsc04030r.jpg 600 450 %}
+
+{% img center /blog/images/2008/12/dsc04031r.jpg 600 450 %}

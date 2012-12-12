@@ -1,0 +1,14 @@
+---
+layout: post
+title: Aaaahhhh!
+tags:
+- Misc
+- pt_BR
+---
+EU TENHO QUE APRENDER LaTeX!!!! 
+
+("?" -  [PT_BR](http://pt.wikipedia.org/wiki/LaTeX) / [EN](http://en.wikipedia.org/wiki/LaTeX)
+
+Perde-se **MUITO** tempo com formatação para se fazer uma apresentação em Powerpoint ou OpenOffice Impress!
+
+aaah que raiva...

@@ -1,0 +1,22 @@
+---
+layout: post
+title: 25 de Abril
+tags:
+- Misc
+- pt_BR
+- Video
+---
+Aproveitando a data e uma música que fiquei de falar a respeito com minha irmã.
+
+25 de Abril é conhecido em Portugal como "Dia da Liberdade", feriado nacional em comemoração pelo 25 de Abril de 1974 quando ocorreu a chamada "Revolução dos Cravos" que pôs fim ao regime que governava o país desde 1926. Mais detalhes nas referências no fim desse post.
+
+Em 1975, Chico Buarque gravou "Tanto Mar", canção que faz menção ao 25 de Abril e como você deve imaginar, foi censurada (quem sabe outro dia escrevo sobre as letras que a censura **não** percebeu o teor "subversivo"...). Há no Youtube um vídeo da segunda versão da música com imagens do 25 de abril.
+
+{% youtube PsJpeR2K-is %}
+
+Mais a respeito:
+
+  * [Revolução dos Cravos](http://pt.wikipedia.org/wiki/Revolu%C3%A7%C3%A3o_dos_cravos)
+  * [Cronologia - Centro de Documentação 25 de Abril - Universidade de Coimbra](http://www1.ci.uc.pt/cd25a/wikka.php?wakka=Cronologia)
+  * [Chico Buarque - Tanto Mar (1975)](http://natura.di.uminho.pt/%7Ejj/musica/html/buarque-tantoMar.html)
+  * [Chico Buarque - Tanto Mar (1976)](http://natura.di.uminho.pt/%7Ejj/musica/html/buarque-tantoMar2.html)

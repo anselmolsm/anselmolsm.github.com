@@ -1,0 +1,14 @@
+---
+layout: post
+title: Uma dica =)
+tags:
+- Misc
+- pt_BR
+---
+Uma pequena dica (nerd?): Se um belo dia você, ao tentar usar um terminal de consulta da Saraiva, encontrar uma tela preta com um <em>prompt</em>...
+
+... escreva <em>reboot</em> e pressione <em>enter</em> .
+
+Espere o terminal reiniciar e algum tempo depois o sistema de consulta da Saraiva estará novamente funcionando.
+
+Baseado em fatos reais :-)

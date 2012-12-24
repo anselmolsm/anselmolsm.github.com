@@ -63,3 +63,23 @@ div.imagecc {
 div.imagecr,div.imagecl,div.imagecc img {
     max-width: 100%;
 }
+
+//---- customizing _blog.scss
+
+article {
+  header {
+    p {
+      &.meta {
+        text-transform: none;
+        position: relative;
+      }
+    }
+  }
+}
+
+#content .blog-index {
+  article h1 {
+    font-size: 1.5em;
+    a { color: inherit; &:hover { color: $link-color-hover; } }
+  }
+}

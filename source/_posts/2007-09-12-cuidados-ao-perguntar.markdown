@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Cuidados ao perguntar
-tags:
+categories:
 - pt_BR
 - Video
 ---

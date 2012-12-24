@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Qt Mobile Demos in extras-devel
-tags:
+categories:
 - demos
 - Development
 - en

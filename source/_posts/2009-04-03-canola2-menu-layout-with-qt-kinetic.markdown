@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Canola2 menu layout with Qt Kinetic
-tags:
+categories:
 - Development
 - en
 - examples

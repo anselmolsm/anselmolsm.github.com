@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Controle da Internet?
-tags:
+categories:
 - Misc
 - pt_BR
 ---

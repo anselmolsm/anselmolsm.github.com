@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Operação Boa Viagem - parte 4 (final!)
-tags:
+categories:
 - brasil
 - Misc
 - opBoaViagem

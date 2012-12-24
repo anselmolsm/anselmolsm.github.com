@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Living on the edge
-tags:
+categories:
 - danger
 - Geek
 - linux

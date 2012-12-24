@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Wii x Wee
-tags:
+categories:
 - pt_BR
 - Video
 ---

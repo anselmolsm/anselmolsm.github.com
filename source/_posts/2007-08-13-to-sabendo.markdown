@@ -1,7 +1,7 @@
 ---
 layout: post
 title: ! '"Tô sabendo"'
-tags:
+categories:
 - Misc
 - pt_BR
 ---

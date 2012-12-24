@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Qt 4.6 & mobile-demos (pt_BR)
-tags:
+categories:
 - demos
 - Development
 - mobile

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Eu queria ter...
-tags:
+categories:
 - Misc
 - pt_BR
 ---

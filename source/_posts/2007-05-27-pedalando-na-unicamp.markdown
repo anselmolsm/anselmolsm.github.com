@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Pedalando na Unicamp
-tags:
+categories:
 - Misc
 - pt_BR
 ---

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 25 de Abril
-tags:
+categories:
 - Misc
 - pt_BR
 - Video

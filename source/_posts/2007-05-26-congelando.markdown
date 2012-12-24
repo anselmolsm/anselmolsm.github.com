@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Congelando
-tags:
+categories:
 - Misc
 - pt_BR
 ---

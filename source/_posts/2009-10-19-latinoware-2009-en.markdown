@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Latinoware 2009
-tags:
+categories:
 - en
 - INdT
 - KDE

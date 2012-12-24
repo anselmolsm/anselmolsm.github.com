@@ -1,7 +1,7 @@
 ---
 layout: post
 title: A script to configure Qt-S60 environment on Linux
-tags:
+categories:
 - Development
 - en
 - GPSL

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Maior??
-tags:
+categories:
 - Misc
 - pt_BR
 ---

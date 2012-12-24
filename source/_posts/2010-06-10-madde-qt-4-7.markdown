@@ -1,7 +1,7 @@
 ---
 layout: post
 title: MADDE + Qt 4.7
-tags:
+categories:
 - Development
 - en
 - GPSL

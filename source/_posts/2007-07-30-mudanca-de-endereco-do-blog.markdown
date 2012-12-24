@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Mudança de endereço do blog
-tags:
+categories:
 - Misc
 - pt_BR
 ---

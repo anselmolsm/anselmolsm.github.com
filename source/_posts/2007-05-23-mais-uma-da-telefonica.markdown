@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Mais uma da Telefônica....
-tags:
+categories:
 - Misc
 - pt_BR
 ---

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Uma semana agitada...
-tags:
+categories:
 - Misc
 - pt_BR
 ---

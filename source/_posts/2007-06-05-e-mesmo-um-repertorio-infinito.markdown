@@ -1,7 +1,7 @@
 ---
 layout: post
 title: É mesmo um repertório infinito!
-tags:
+categories:
 - Misc
 - pt_BR
 ---

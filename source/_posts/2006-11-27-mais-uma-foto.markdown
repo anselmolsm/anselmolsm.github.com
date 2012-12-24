@@ -1,7 +1,7 @@
 ---
 layout: post
 title: mais uma foto
-tags:
+categories:
 - Misc
 - pt_BR
 ---

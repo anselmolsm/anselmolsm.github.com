@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "If you’re going to San Francisco…"
-tags:
+categories:
 - DevDays
 - Development
 - devnet

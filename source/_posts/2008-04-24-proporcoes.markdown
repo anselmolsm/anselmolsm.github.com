@@ -1,7 +1,7 @@
 ---
 layout: post
 title: proporções
-tags:
+categories:
 - irc
 - Misc
 - pt_BR

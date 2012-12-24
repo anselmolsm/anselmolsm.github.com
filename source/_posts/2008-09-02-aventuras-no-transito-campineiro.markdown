@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Aventuras no Trânsito Campineiro
-tags:
+categories:
 - campinas
 - carro
 - Misc

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Aaaah... agora chegou a hora
-tags:
+categories:
 - Misc
 - pt_BR
 ---

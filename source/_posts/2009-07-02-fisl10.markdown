@@ -1,7 +1,7 @@
 ---
 layout: post
 title: fisl10
-tags:
+categories:
 - aKademy
 - fisl
 - gcds

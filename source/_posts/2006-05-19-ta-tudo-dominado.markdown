@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Tá tudo Dominado!
-tags:
+categories:
 - Misc
 - pt_BR
 ---

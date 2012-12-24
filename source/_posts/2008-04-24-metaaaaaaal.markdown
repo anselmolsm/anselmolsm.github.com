@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Metaaaaaaal
-tags:
+categories:
 - pt_BR
 - recife
 - Viagem

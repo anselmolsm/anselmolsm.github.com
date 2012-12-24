@@ -1,7 +1,7 @@
 ---
 layout: post
 title: m ou n???
-tags:
+categories:
 - Misc
 - pt_BR
 ---

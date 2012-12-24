@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Maravilhas
-tags:
+categories:
 - Misc
 - pt_BR
 ---

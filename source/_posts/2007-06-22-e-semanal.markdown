@@ -1,7 +1,7 @@
 ---
 layout: post
 title: É semanal?
-tags:
+categories:
 - Misc
 - pt_BR
 ---

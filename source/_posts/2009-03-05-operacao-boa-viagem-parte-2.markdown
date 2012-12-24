@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Operação Boa Viagem, parte 2
-tags:
+categories:
 - INdT
 - opBoaViagem
 - photo

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Doce E Salgada = ?
-tags:
+categories:
 - Misc
 - pt_BR
 ---

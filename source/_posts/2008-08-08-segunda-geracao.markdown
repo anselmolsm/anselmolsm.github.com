@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Segunda geração...
-tags:
+categories:
 - cell
 - china
 - Misc

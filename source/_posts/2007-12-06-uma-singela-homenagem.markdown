@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Uma singela "homenagem"...
-tags:
+categories:
 - Misc
 - pt_BR
 ---

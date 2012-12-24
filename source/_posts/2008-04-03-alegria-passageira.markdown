@@ -1,7 +1,7 @@
 ---
 layout: post
 title: alegria passageira
-tags:
+categories:
 - irc
 - Misc
 - pt_BR

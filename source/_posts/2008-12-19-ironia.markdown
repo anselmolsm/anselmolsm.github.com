@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Ironia
-tags:
+categories:
 - campinas
 - fail
 - Misc

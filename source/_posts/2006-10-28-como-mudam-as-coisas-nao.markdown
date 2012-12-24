@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Como mudam as coisas, não?
-tags:
+categories:
 - Misc
 - pt_BR
 ---

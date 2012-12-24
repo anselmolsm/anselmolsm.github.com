@@ -1,7 +1,7 @@
 ---
 layout: post
 title: tchau!
-tags:
+categories:
 - beijing2008
 - brasil
 - futebol

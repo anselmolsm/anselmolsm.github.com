@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Aproveitando passagem por SP =)
-tags:
+categories:
 - pt_BR
 - Viagem
 ---

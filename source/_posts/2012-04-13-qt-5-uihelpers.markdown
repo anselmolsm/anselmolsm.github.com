@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Qt 5 UiHelpers
-tags:
+categories:
 - Development
 - en
 - GPSL

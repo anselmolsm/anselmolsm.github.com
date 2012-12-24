@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Informações "Precisas"
-tags:
+categories:
 - fail
 - foto
 - Misc

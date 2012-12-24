@@ -1,7 +1,7 @@
 ---
 layout: post
 title: A minha felicidade...
-tags:
+categories:
 - Misc
 - pt_BR
 ---

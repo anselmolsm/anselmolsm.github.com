@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Qt Contributors' Summit
-tags:
+categories:
 - devnet
 - en
 - GPSL

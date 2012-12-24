@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Opera Mini - PSP
-tags:
+categories:
 - browser
 - internet
 - psp

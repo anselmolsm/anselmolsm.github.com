@@ -1,7 +1,7 @@
 ---
 layout: post
 title: poucas palavras
-tags:
+categories:
 - Misc
 - pt_BR
 ---

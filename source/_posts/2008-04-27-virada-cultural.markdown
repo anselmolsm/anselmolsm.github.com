@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Virada Cultural
-tags:
+categories:
 - photo
 - pt_BR
 - sp

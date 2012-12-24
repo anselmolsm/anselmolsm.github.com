@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Operacão Boa Viagem, parte 3
-tags:
+categories:
 - opBoaViagem
 - photo
 - pinda

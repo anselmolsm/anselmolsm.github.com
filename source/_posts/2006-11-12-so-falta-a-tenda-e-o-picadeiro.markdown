@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Só falta a tenda e o picadeiro
-tags:
+categories:
 - Misc
 - pt_BR
 ---

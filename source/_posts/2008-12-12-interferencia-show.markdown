@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Interferência Show!
-tags:
+categories:
 - campinas
 - carro
 - dpedro

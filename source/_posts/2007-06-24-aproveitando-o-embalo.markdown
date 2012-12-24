@@ -1,7 +1,7 @@
 ---
 layout: post
 title: aproveitando o embalo
-tags:
+categories:
 - pt_BR
 - Video
 ---

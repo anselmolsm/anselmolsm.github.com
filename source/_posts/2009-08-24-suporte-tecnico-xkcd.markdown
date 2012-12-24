@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Suporte técnico (xkcd)
-tags:
+categories:
 - Geek
 - Misc
 - pc

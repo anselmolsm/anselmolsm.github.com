@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Parabéns!!!
-tags:
+categories:
 - Misc
 - pt_BR
 ---

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Sala, sofá, notebook, interruptor, anoitecer, 8km...
-tags:
+categories:
 - Misc
 - pt_BR
 ---

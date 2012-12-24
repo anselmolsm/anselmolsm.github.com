@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Working in the open again
-tags:
+categories:
 - aKademy
 - Development
 - en

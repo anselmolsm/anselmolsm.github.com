@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Em "pergunta existencial" de hoje
-tags:
+categories:
 - Misc
 - pt_BR
 ---

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: ! 'Street Fighter: The Later Years'
-tags:
+categories:
 - pt_BR
 - Video
 ---

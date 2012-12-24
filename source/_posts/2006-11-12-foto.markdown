@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Foto
-tags:
+categories:
 - Misc
 - pt_BR
 ---

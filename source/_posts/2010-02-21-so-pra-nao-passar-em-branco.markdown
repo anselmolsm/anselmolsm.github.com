@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Só pra não passar em branco =)
-tags:
+categories:
 - blog
 - brasil
 - futebol

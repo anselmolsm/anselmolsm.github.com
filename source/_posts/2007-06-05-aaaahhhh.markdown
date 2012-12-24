@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Aaaahhhh!
-tags:
+categories:
 - Misc
 - pt_BR
 ---

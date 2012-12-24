@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Layout Animations with Qt Kinetic
-tags:
+categories:
 - Development
 - en
 - INdT

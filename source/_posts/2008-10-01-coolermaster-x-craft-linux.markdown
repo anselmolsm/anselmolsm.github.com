@@ -42,6 +42,6 @@ Testei com a versão 2.6.27-rc8, mas a alteração deve funcionar também com a 
 ---
 
   * PS1: O patch aqui disponibilizado não é meu (infelizmente =P), mas sim a versão da segunda solução proposta por J. Kysela.
-  * PS2: o usuário "(http://forum.coolermaster.com/viewtopic.php?f=6&amp;t=10947&amp;sid=5564807c06799b5b330592f12371d15c#p85556)[tinga]" usado no fórum da CoolerMaster é uma homenagem à uma grande personalidade da Unicamp =)
+  * PS2: o usuário "[tinga](http://forum.coolermaster.com/viewtopic.php?f=6&amp;t=10947&amp;sid=5564807c06799b5b330592f12371d15c#p85556)" usado no fórum da CoolerMaster é uma homenagem à uma grande personalidade da Unicamp =)
   * PS3: Correções sobre eventuais bobagens que eu tenha escrito aqui são bem vindas.
   * EDIT PS4: Pessoas, não adianta só aplicar o patch e esperar algo acontecer, precisa recompilar o kernel, instalar e rebootar...

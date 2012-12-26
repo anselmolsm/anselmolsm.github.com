@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Uma dica =)
+comments: true
 categories:
 - Misc
 - pt_BR

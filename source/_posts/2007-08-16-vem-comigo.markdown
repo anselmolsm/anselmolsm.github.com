@@ -1,6 +1,7 @@
 ---
 layout: post
 title: ! '"Vem Comigo"'
+comments: true
 categories:
 - Misc
 - pt_BR

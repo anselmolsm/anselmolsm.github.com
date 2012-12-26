@@ -1,6 +1,7 @@
 ---
 layout: post
 title: mais uma foto
+comments: true
 categories:
 - Misc
 - pt_BR

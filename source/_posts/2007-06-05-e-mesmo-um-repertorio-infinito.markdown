@@ -1,6 +1,7 @@
 ---
 layout: post
 title: É mesmo um repertório infinito!
+comments: true
 categories:
 - Misc
 - pt_BR

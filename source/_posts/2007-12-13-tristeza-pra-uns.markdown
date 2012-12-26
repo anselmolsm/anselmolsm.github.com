@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Tristeza pra uns...
+comments: true
 categories:
 - Misc
 - pt_BR

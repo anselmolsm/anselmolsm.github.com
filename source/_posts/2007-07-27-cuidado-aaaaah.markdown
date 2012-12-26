@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Cuidado! aaaaah...
+comments: true
 categories:
 - Misc
 - pt_BR

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Meego Conf 2011 - San Francisco
+comments: true
 categories:
 - conference
 - Development

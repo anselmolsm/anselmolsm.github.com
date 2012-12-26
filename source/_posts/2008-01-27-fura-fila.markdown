@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Fura-Fila
+comments: true
 categories:
 - Misc
 - pt_BR

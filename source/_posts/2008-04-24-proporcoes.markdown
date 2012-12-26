@@ -1,6 +1,7 @@
 ---
 layout: post
 title: proporções
+comments: true
 categories:
 - irc
 - Misc

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Qt Contributors' Summit
+comments: true
 categories:
 - devnet
 - en

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: MADDE + Qt 4.7
+comments: true
 categories:
 - Development
 - en

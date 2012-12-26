@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Lição de moral?
+comments: true
 categories:
 - Misc
 - pt_BR

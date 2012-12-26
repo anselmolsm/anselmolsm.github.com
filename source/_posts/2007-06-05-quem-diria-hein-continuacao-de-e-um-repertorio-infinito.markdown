@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Quem diria hein? (continuação de "É um repertório infinito!"
+comments: true
 categories:
 - Misc
 - pt_BR

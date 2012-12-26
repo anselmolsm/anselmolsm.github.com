@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Operacão Boa Viagem, parte 3
+comments: true
 categories:
 - opBoaViagem
 - photo

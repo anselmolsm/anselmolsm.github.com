@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Como mudam as coisas, não?
+comments: true
 categories:
 - Misc
 - pt_BR

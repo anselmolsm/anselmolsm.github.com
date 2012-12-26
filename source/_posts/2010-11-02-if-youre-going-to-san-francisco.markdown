@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "If you’re going to San Francisco…"
+comments: true
 categories:
 - DevDays
 - Development

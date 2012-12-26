@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Parabéns!!!
+comments: true
 categories:
 - Misc
 - pt_BR

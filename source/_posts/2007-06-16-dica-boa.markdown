@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Dica Boa
+comments: true
 categories:
 - Misc
 - pt_BR

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Um final de semana "carioca"...
+comments: true
 categories:
 - pt_BR
 - Viagem

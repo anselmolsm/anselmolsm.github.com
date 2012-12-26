@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Eu queria ter...
+comments: true
 categories:
 - Misc
 - pt_BR

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: alegria passageira
+comments: true
 categories:
 - irc
 - Misc

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Virada Cultural
+comments: true
 categories:
 - photo
 - pt_BR

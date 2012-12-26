@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Foto
+comments: true
 categories:
 - Misc
 - pt_BR

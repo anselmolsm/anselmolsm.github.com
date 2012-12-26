@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Metaaaaaaal
+comments: true
 categories:
 - pt_BR
 - recife

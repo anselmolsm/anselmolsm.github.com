@@ -1,6 +1,7 @@
 ---
 layout: post
 title: CoolerMaster X-Craft & Linux
+comments: true
 categories:
 - Geek
 - hw

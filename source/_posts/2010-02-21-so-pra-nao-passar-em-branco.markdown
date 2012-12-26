@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Só pra não passar em branco =)
+comments: true
 categories:
 - blog
 - brasil

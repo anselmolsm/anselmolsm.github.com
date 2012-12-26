@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Controladores de Vôo
+comments: true
 categories:
 - Misc
 - pt_BR

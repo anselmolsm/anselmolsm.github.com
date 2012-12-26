@@ -1,6 +1,7 @@
 ---
 layout: post
 title: tchau!
+comments: true
 categories:
 - beijing2008
 - brasil

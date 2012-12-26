@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Vídeo no PSP
+comments: true
 categories:
 - Geek
 - linux

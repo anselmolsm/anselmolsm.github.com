@@ -1,6 +1,7 @@
 ---
 layout: post
 title: aproveitando o embalo
+comments: true
 categories:
 - pt_BR
 - Video

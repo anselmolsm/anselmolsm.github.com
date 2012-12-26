@@ -1,6 +1,7 @@
 ---
 layout: post
 title: poucas palavras
+comments: true
 categories:
 - Misc
 - pt_BR

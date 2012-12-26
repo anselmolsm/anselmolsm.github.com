@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Desafiando a Física
+comments: true
 categories:
 - Misc
 - photo

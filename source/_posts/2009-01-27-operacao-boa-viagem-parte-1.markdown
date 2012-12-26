@@ -2,7 +2,9 @@
 layout: post
 title: Operação Boa Viagem, parte 1
 comments: false
+comments: true
 categories: opBoaViagem
+comments: true
 categories:
 - INdT
 - opBoaViagem

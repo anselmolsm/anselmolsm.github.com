@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Qt State Machine and Animated Layouts Integration
+comments: true
 categories:
 - Development
 - en

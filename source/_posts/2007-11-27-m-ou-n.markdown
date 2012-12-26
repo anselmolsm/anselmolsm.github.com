@@ -1,6 +1,7 @@
 ---
 layout: post
 title: m ou n???
+comments: true
 categories:
 - Misc
 - pt_BR

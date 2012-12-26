@@ -1,6 +1,7 @@
 ---
 layout: post
 title: fisl10
+comments: true
 categories:
 - aKademy
 - fisl

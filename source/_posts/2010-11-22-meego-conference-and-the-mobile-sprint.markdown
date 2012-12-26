@@ -1,6 +1,7 @@
 ---
 layout: post
 title: MeeGo Conference and the Mobile Sprint
+comments: true
 categories:
 - conference
 - Development

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: o primeiro ssh a gente nunca esquece
+comments: true
 categories:
 - Geek
 - hacker!

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Informações "Precisas"
+comments: true
 categories:
 - fail
 - foto

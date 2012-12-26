@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Av. Brasil
+comments: true
 categories:
 - Misc
 - pt_BR

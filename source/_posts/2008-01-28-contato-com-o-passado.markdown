@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Contato com o passado
+comments: true
 categories:
 - Misc
 - pt_BR

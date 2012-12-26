@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Ainda em tempo...
+comments: true
 categories:
 - Misc
 - pt_BR

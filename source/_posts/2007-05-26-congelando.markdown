@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Congelando
+comments: true
 categories:
 - Misc
 - pt_BR

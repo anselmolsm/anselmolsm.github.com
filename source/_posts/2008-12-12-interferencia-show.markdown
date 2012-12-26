@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Interferência Show!
+comments: true
 categories:
 - campinas
 - carro

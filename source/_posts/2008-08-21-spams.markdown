@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Spams...
+comments: true
 categories:
 - email
 - Misc

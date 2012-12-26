@@ -1,6 +1,7 @@
 ---
 layout: post
 title: hein?
+comments: true
 categories:
 - Misc
 - pt_BR

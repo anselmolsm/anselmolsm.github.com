@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Moedinhas
+comments: true
 categories:
 - Misc
 - pt_BR

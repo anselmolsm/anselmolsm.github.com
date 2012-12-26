@@ -1,6 +1,7 @@
 ---
 layout: post
 title: hehe
+comments: true
 categories:
 - Misc
 ---

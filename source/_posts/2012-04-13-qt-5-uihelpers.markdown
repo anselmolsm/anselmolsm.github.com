@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Qt 5 UiHelpers
+comments: true
 categories:
 - Development
 - en

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Living on the edge
+comments: true
 categories:
 - danger
 - Geek

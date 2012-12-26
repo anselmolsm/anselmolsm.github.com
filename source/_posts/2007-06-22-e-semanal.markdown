@@ -1,6 +1,7 @@
 ---
 layout: post
 title: É semanal?
+comments: true
 categories:
 - Misc
 - pt_BR

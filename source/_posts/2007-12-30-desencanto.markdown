@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Desencanto
+comments: true
 categories:
 - Misc
 - pt_BR

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Você percebe que está precisando dormir...
+comments: true
 categories:
 - Misc
 - pt_BR

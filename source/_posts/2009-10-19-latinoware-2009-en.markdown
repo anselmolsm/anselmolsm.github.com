@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Latinoware 2009
+comments: true
 categories:
 - en
 - INdT

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: A minha felicidade...
+comments: true
 categories:
 - Misc
 - pt_BR

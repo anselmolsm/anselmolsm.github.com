@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Avast, salty sea-dog!
+comments: true
 categories:
 - arroy!
 - pirate

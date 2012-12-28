@@ -50,61 +50,67 @@ Besides moving classes out of QtWidgets, some prototypes of convenience APIs wer
 
 The following example shows a possible use case for the CompletionModel. Improving the models supported by <em>sourceModel</em> is part of the ToDo list. The ListView is going to show the updated list that currently satisfies what is written in the TextInput.
     
-    TextInput {
-        id: input
-    }
+```
+TextInput {
+    id: input
+}
 
-    CompletionModel {
-        id: completionModel
-        sourceModel: ["Ascension Island", "Andorra", "Afghanistan"]
-        completionPrefix: input.text
-        caseSensitivity: Qt.CaseInsensitive
-    }
+CompletionModel {
+    id: completionModel
+    sourceModel: ["Ascension Island", "Andorra", "Afghanistan"]
+    completionPrefix: input.text
+    caseSensitivity: Qt.CaseInsensitive
+}
 
-    ListView {
-        model: completionModel
-        delegate: Text { text: modelData }
-    }
+ListView {
+    model: completionModel
+    delegate: Text { text: modelData }
+}
+```
 
 The two examples bellow show the UndoStack and two items that represent commands. The idea of UndoPropertyCommand is to enable track the changes of some properties. In the example, we are going to track x and y when myRect is moved.
 
-    UndoStack {
-        id: stack
-        undoLimit: 5
-    }
+```
+UndoStack {
+    id: stack
+    undoLimit: 5
+}
 
-    UndoPropertyCommand {
-        id: moveCommand
-        properties: ["x", "y"]
-    }
+UndoPropertyCommand {
+    id: moveCommand
+    properties: ["x", "y"]
+}
 
-    Rectangle {
-        id: myRect
+Rectangle {
+    id: myRect
+
+    (...)
     
+    MouseArea {
         (...)
-    
-        MouseArea {
-            (...)
-            drag.target: parent
-            onPressed: stack.push(moveCommand, myRect);
-        }
+        drag.target: parent
+        onPressed: stack.push(moveCommand, myRect);
     }
+}
+```
 
 UndoCommand is another element used to represent commands. The difference here is that it allows the customization of the actions onUndo and onRedo the command.
 
-    UndoCommand {
-        id: aCommand
+```
+UndoCommand {
+    id: aCommand
     
-        onUndo: doAThing(target);
-        onRedo: undoAThing(target);
-    }
+    onUndo: doAThing(target);
+    onRedo: undoAThing(target);
+}
 
-    Button {
-        onClicked: stack.push(aCommand, target);
-    }</pre>
+Button {
+    onClicked: stack.push(aCommand, target);
+}
+```
 
 **Future**
 
-Maybe one day this playground project gets promoted and become a Qt Add-on, but there is no expectation it will happen before 5.0. In the meanwhile, there is a ToDo list with some topics we consider important to handle, like better examples, more tests, docs, etc.
+Maybe one day this playground project gets promoted and become a Qt Add-on, but there is no expectation it will happen before 5.0. In the meanwhile, there is a ToDo list with some topics we consider important to handle, like better examples, more tests, docs, etc.
 
 We are looking forward receiving more opinions about this work and, as always, contributors are welcome!

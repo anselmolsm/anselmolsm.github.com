@@ -23,22 +23,21 @@ Running the script, the first step shows the URLs to files you have to download,
 
 The script then downloads other files that are direct accessible and the installation begins. If everything goes right, in the end your environment will be ready for Qt-S60 development.
 
-Wanna try? Download a it [here](http://www.anselmolsm.org/public/setupQtS60env/setupQtS60env-latest.tar.bz2) or git clone it:
+Wanna try? Download a it [here](https://gitorious.org/anselmolsm-labs/setupqts60env/archive-tarball/master) or git clone it:
 
 ```
-git clone git://littlechina.org/anselmo/setupQtS60env
+git clone git://gitorious.org/anselmolsm-labs/setupqts60env.git
 ```
 
 That's it =)
 
-ToDo:
-<ul>
-	<li>Simplify updates of Qt-S60 in a environment already in use.</li>
-	<li>Solve the #XXX in the script</li>
-	<li>Probably there are other things that I don't remember now =)</li>
-	<li>UPDATE: 2009-10-17: There are some issues in qmake when using DEPLOYMENT</li>
-	<li>UPDATE2: 2009-10-19: The old daily builds aren't available anymore, a message there says that they "back tonight hopefully"</li>
-	<li>UPDATE3: 2009-10-20: Builds are back =)</li>
-	<li>UPDATE4: 2009-11-01: The gnupoc patch for Qt-S60 needs to be uptaded =/ .</li>
-	<li>Hopefully it's going to save us =) [http://labs.trolltech.com/blogs/2009/10/28/a-new-symbian-toolchain-for-linux/](http://labs.trolltech.com/blogs/2009/10/28/a-new-symbian-toolchain-for-linux/)</li>
-</ul>
+**ToDo:**
+
+  * Simplify updates of Qt-S60 in a environment already in use.
+  * Solve the #XXX in the script
+  * Probably there are other things that I don't remember now =)
+  * UPDATE: 2009-10-17: There are some issues in qmake when using DEPLOYMENT
+  * UPDATE2: 2009-10-19: The old daily builds aren't available anymore, a message there says that they "back tonight hopefully"
+  * UPDATE3: 2009-10-20: Builds are back =)
+  * UPDATE4: 2009-11-01: The gnupoc patch for Qt-S60 needs to be uptaded =/ .
+  * Hopefully it's going to save us =) [http://labs.trolltech.com/blogs/2009/10/28/a-new-symbian-toolchain-for-linux/](http://labs.trolltech.com/blogs/2009/10/28/a-new-symbian-toolchain-for-linux/)

@@ -20,9 +20,9 @@ To celebrate the new version of Qt, the first with [the S60 port](http://labs.tr
 
 As the release was yesterday, probably there are people without Qt 4.6 installed in their desktops yet... so we prepared binaries with **Qt 4.6.0 statically linked** =)
 
-[Linux version](http://www.anselmolsm.org/public/qt/mobile-demos_static-linux.tar.bz2)
+[Linux version](https://www.amazon.com/clouddrive/share?s=pcPK5QXHTqgpqoH9gk-QhQ)
 
-[Windows version](http://www.anselmolsm.org/public/qt/mobile-demos_static-win32.zip)
+[Windows version](https://www.amazon.com/clouddrive/share?s=EX2qQa9sR3EmC2lkic2jwA)
 
 Mac version: Unfortunately I don't have a Mac available here right now. Contributions are welcome =)
 
@@ -36,6 +36,6 @@ TODO: Fix the bug in the weather demo when there's no connection...
 
 PS1: As an extra activity, support for keypads is work in progress (I have a N85 =P )
 
-PS2:  Now that Qt 4.6.0 is out, it's a good moment to make [it work again](http://www.anselmolsm.org/blog/a-script-to-configure-qt-s60-environment-on-linux/) ...
+PS2:  Now that Qt 4.6.0 is out, it's a good moment to [make it work again](http://www.anselmolsm.org/blog/a-script-to-configure-qt-s60-environment-on-linux/) ...
 
 PS3: Hello planet KDE! o/

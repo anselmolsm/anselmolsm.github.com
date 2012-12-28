@@ -24,7 +24,7 @@ Step-by-step:
   * Install MADDE. [Download it here](http://tablets-dev.nokia.com/MADDE.php).
   * If you are **not** using a Debian based distro, you need to install the "﻿﻿Tools for Debian Packages" package of your distribution (e.g. "deb" on openSUSE, sys-apps/debianutils on Gentoo).
   * Download the script ﻿[fetch-qt4.7.0-latest.sh](http://anselmolsm.org/public/qt/madde-qt47/fetch-qt4.7.0-latest.sh). This script downloads the libqt4-experimental packages from repository.maemo.org and installs then in your MADDE - Before you run the script, remember to adjust the MADDE_PATH variable according to the path you installed MADDE.
-  * Download [qt4-tools-latest.tar.gz](http://anselmolsm.org/public/qt/madde-qt47/qt4-tools-latest.tar.gz). It contains the Qt tools compiled for the correspondent version, configured for cross compiling. Extract to /opt/qt4-maemo5.
+  * Download [qt4-tools-latest.tar.gz](https://www.amazon.com/clouddrive/share?s=fX_jj9QbRhMmliRXU_06OE). It contains the Qt tools compiled for the correspondent version, configured for cross compiling. Extract to /opt/qt4-maemo5.
   * Check if **mad** is in your PATH.
 
 To build an application using your fresh environment, run **/opt/qt4-maemo5/bin/qmake && make .**
@@ -32,7 +32,3 @@ To build an application using your fresh environment, run **/opt/qt4-maemo5/bin
 If you succeeded in the setup process, this should result in a armel binary ready to run on N900. To generate a deb package, you can use the tools offered by MADDE to build a skeleton of debian package and so on.
 
 To run your application on N900, install libqt4-experimental-* packages. If QtQuick (QML) is part of your plans, qmlviewer  is in the package qt4-experimental-declarative-qmlviewer .
-
-UPDATE (2010-06-15): For newer (or older) versions, check [http://anselmolsm.org/public/qt/madde-qt47/](http://anselmolsm.org/public/qt/madde-qt47/)
-
-UPDATE (2010-09-09): Links updated to download the latest version.

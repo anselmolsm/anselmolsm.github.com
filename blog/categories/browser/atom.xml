@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: browser | anselmolsm.org]]></title>
+  <link href="http://anselmolsm.org/blog/categories/browser/atom.xml" rel="self"/>
+  <link href="http://anselmolsm.org/"/>
+  <updated>2012-12-29T16:57:22-02:00</updated>
+  <id>http://anselmolsm.org/</id>
+  <author>
+    <name><![CDATA[Anselmo L. S. Melo]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Opera Mini - PSP]]></title>
+    <link href="http://anselmolsm.org/blog/opera-mini-psp/"/>
+    <updated>2008-11-25T00:00:00-02:00</updated>
+    <id>http://anselmolsm.org/blog/opera-mini-psp</id>
+    <content type="html"><![CDATA[<p>Se você é mais um dos que acham que o browser que vem com o <a href="http://en.wikipedia.org/wiki/PlayStation_Portable">PSP</a> é triste, eis uma alternativa: Utilizar o <a href="http://en.wikipedia.org/wiki/Opera_mini">Opera Mini</a>. Sim, aquele que também dá pra usar em celulares. Para isso é necessário instalar o <a href="http://www.pspkvm.com-a.googlepages.com/">PSPKVM</a> (uma máquina virtual <a href="http://en.wikipedia.org/wiki/Java_Platform,_Micro_Edition">Java ME</a> para PSP) e de dentro dele instalar e executar o Opera mini. Mais detalhes (incluindo links para downloads) em <a href="http://my.opera.com/community/blog/2008/10/22/a-better-browser">http://my.opera.com/community/blog/2008/10/22/a-better-browser</a>.</p>
+
+<p>A utilização do Opera Mini no começo é bem chata pois as posições dos comandos na tela não correspondem com os botões do PSP, mas com um pouco de treino melhora. Por exemplo, para inserir a URL na barra de endereços os comandos necessários são:</p>
+
+<p><strong>select</strong>, para abrir o menu lateral e <strong>select</strong> novamente para selecionar a opção <em>Enter Address</em>. Com a barra de endereços selecionada, use o direcional analógico para exibir as opções <em>Search</em> e <em>Insert symbol... . </em>A segunda opção exibirá um teclado qwerty que facilitará inserção de caracteres. O direcional analógico navega entre as teclas do teclado virtual. Terminada a edição da URL, aperte <strong>start</strong> e entao selecione <em>OK</em> no menu. Na sequência, use o botão "<strong>O</strong>" para acessar o endereço inserido.</p>
+
+<p><iframe width="560" height="420" src="http://www.youtube.com/embed/uUlw6xWZVkM?color=white&theme=light"></iframe></p>
+
+<p>Enfim, tem lá suas chatices, mas também algumas vantagens.</p>
+
+<p>Alguma outra sugestão de browser para o PSP?</p>
+]]></content>
+  </entry>
+  
+</feed>

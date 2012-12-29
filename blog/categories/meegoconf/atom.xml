@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: meegoconf | anselmolsm.org]]></title>
+  <link href="http://anselmolsm.org/blog/categories/meegoconf/atom.xml" rel="self"/>
+  <link href="http://anselmolsm.org/"/>
+  <updated>2012-12-29T16:57:22-02:00</updated>
+  <id>http://anselmolsm.org/</id>
+  <author>
+    <name><![CDATA[Anselmo L. S. Melo]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Meego Conf 2011 - San Francisco]]></title>
+    <link href="http://anselmolsm.org/blog/meego-conf-2011-san-francisco/"/>
+    <updated>2011-05-23T00:00:00-03:00</updated>
+    <id>http://anselmolsm.org/blog/meego-conf-2011-san-francisco</id>
+    <content type="html"><![CDATA[<p>I am in San Francisco <a href="(http://www.anselmolsm.org/blog/if-youre-going-to-san-francisco/">again</a>! =), this time for the MeeGo Conference 2011.</p>
+
+<p>The event is about to begin with the keynote "The Future of MeeGo Starts Now" presented by the president of Linux Foundation, Jim Zemlin.</p>
+
+<p>This time, I'm going to present a talk too! The talk is today and the topic is "Writing applications for multiple MeeGo devices".</p>
+
+<p>There are other talks by openBossa/INdT guys, <a href="http://sf2011.meego.com/program/session-schedule">check the schedule</a>!</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[MeeGo Conference and the Mobile Sprint]]></title>
+    <link href="http://anselmolsm.org/blog/meego-conference-and-the-mobile-sprint/"/>
+    <updated>2010-11-22T00:00:00-02:00</updated>
+    <id>http://anselmolsm.org/blog/meego-conference-and-the-mobile-sprint</id>
+    <content type="html"><![CDATA[<p>Then November became a very busy month.</p>
+
+<p><a href="http://www.anselmolsm.org/blog/if-youre-going-to-san-francisco/">After the Qt Dev Days San Francisco</a>, I went quickly to <a href="http://en.wikipedia.org/wiki/Natal,_Rio_Grande_do_Norte">Natal</a> to present a talk about Qt and KDE on mobile devices. It's time to say thank you for the <a href="http://ensl.org.br/2010/">ENSL</a> organizers - As always, I am late with my posts...</p>
+
+<p>So, last week we went to <a href="http://en.wikipedia.org/wiki/Dublin">Dublin</a>, for the <a href="http://conference2010.meego.com/">MeeGo Conference 2010</a>. As more people already posted, it was a really nice event. The good surprise was the limit of the number of Intel and Nokia people, leaving space for the growing community meet - more than a thousand people attended, very well accommodated in the place chosen (the conference rooms at the <a href="http://en.wikipedia.org/wiki/Aviva_Stadium">Aviva Stadium</a>) with a good work of the organization which managed to keep things working nicely.</p>
+
+<p>Although the short time of the presentations, it was good to have a whole idea of how the project is being conduced, and it looks promising. Unfortunately I left Dublin on Wednesday morning, so I lost the last day which was reserved for the '<a href="http://wiki.meego.com/MeeGo_Conference_2010/Unconference">unconference</a>' sections and the <a href="http://www.fifa.com/worldfootball/news/newsid=1265722.html?cid=rssfeed&amp;amp;att=">football match</a>, but I managed to go to the <a href="http://www.guinness-storehouse.com/en/Index.aspx">Guinness Storehouse</a> on Tuesday night, a really good choice for the conference after hours.</p>
+
+<p>With the <a href="http://en.wikipedia.org/wiki/IdeaPad">Lenovo ideapad</a> received from the MeeGo Conference guys (thanks! :-)) in my backpack, I traveled to <a href="http://en.wikipedia.org/wiki/Berlin">Berlin</a> for the <a href="http://community.kde.org/KDE_Mobile/Sprints/November2010-Planning">KDE Mobile Sprint</a>, kindly hosted by <a href="http://www.kdab.net">KDAB</a>.</p>
+
+<p>I must say, we had fun with the new devices. :-)
+During the sprint, interesting discussions about MeeGo, new opportunities, QML and Qt-components. Some of the guys dedicated their time to KDE packaging for MeeGo while in parallel other ones worked in QML based widgets for plasma, tested how some applications work on the ideapad's touchscreen, and tested plasma-mobile and plasma-tablet shells on it. The results of this sprint are being listed in <a href="http://community.kde.org/KDE_Mobile/Sprints/November2010-Results">this wiki page</a>.</p>
+
+<p><div class="imagecc" style="width:500px"><a href="/blog/images/2010/11/plasma-netbook.jpg" title="The first steps :-)"><img src="/blog/images/2010/11/plasma-netbook.jpg" width="480" height="360" alt="The first steps :-)" border=0></a><br>The first steps :-)</div></p>
+
+<p>Check the videos in <a href="http://www.notmart.org/index.php/BlaBla/Meego_summit_and_Mobile_sprint_">Marco's</a> and <a href="http://blog.morpheuz.cc/21/11/2010/kde-mobile-sprint-and-meego/">Artur's</a> posts about the sprint. Also, Till Adam showing <a href="http://www.youtube.com/watch?v=SsWnfny61oI">Kontact Mobile on MeeGo</a>.</p>
+
+<p>Of course there is more work to do, but considering how things worked without special attention to this device (and for MeeGo), we can expect good news in the future.</p>
+
+<p>And here a screenshot of the gallery to test the Plasma QML widgets, with a FlashingLabel, some BusyWidgets and a PushButton. It's just the beginning.</p>
+
+<p><div class="imagecc" style="width:359px"><a href="/blog/images/2010/11/gallery.png" title="I know, the gallery is, let's say, weird... :-P"><img src="/blog/images/2010/11/gallery.png" width="339" height="372" alt="I know, the gallery is, let's say, weird... :-P" border=0></a><br>I know, the gallery is, let's say, weird... :-P</div></p>
+]]></content>
+  </entry>
+  
+</feed>

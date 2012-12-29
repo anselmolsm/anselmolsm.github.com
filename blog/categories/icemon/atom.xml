@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: icemon | anselmolsm.org]]></title>
+  <link href="http://anselmolsm.org/blog/categories/icemon/atom.xml" rel="self"/>
+  <link href="http://anselmolsm.org/"/>
+  <updated>2012-12-29T16:57:22-02:00</updated>
+  <id>http://anselmolsm.org/</id>
+  <author>
+    <name><![CDATA[Anselmo L. S. Melo]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Working in the open again]]></title>
+    <link href="http://anselmolsm.org/blog/working-in-the-open-again/"/>
+    <updated>2012-03-27T00:00:00-03:00</updated>
+    <id>http://anselmolsm.org/blog/working-in-the-open-again</id>
+    <content type="html"><![CDATA[<p>Long time since my last post (it's sad to realize how often I start posts writing this).
+Since last year's <a href="http://qt-project.org/groups/qt-contributors-summit-2011">Qt Contributors' Summit</a>, our team at <a href="http://www.indt.org/?lang=en">INdT</a> worked on a closed source project - the main reason of the low activity here. At least, I could write some posts for the <a href="http://blog.qtlabs.org.br/">Qt Labs Blog Brazil</a>, most of them introducing basic concepts about Qt programming and the Qt ecosystem (buzzword++).
+The good part is: This project we were working on was developed using Qt and QML for a desktop application. Besides promoting Qt among Brazilian developers and companies, this project helped us to think about improvements for future releases of QtQuick aiming desktop applications. I am looking forward to see a release of this product soon! (However, when it is going to happen is a client decision).</p>
+
+<p>Then, after the end of this project, I <strong>finally</strong> managed to contribute to Qt5! :-)</p>
+
+<p>Also, in the end of the last year some coworkers started a kind of pet project: It's called Iceberg, a fork of the Icecream Monitor.</p>
+
+<p><strong>"Why a fork?"</strong> Here we use (http://en.opensuse.org/Icecream)[icecream] for distributed compilation, many colleagues used to complain about icemon depending on kdelibs. In fact, the code did not use the additional features compared to the equivalent Qt classes. Then, after <a href="http://hugoparente.blogspot.com.br/">hugopl</a> <a href="http://hugoparente.blogspot.com.br/2011/10/iceberg.html">started the project</a>, we fixed some issues and added new stuff. The code is <a href="https://github.com/hugopl/Iceberg">here</a>.</p>
+
+<p>I am writing another post to introduce one of our current research projects, which is also part of the proposal I sent to <a href="http://akademy.kde.org/">Akademy 2012</a>.</p>
+]]></content>
+  </entry>
+  
+</feed>

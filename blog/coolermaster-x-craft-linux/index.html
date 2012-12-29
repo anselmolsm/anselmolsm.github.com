@@ -1,0 +1,326 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>CoolerMaster X-Craft & Linux - anselmolsm.org</title>
+  <meta name="author" content="Anselmo L. S. Melo">
+
+  
+  <meta name="description" content="EDIT: Veja nos comentários o que foi postado pelo Luis. Ele indica como contornar o problema sem precisar de patch e recompilar o kernel. =) Adquiri &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://anselmolsm.org/blog/coolermaster-x-craft-linux/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/blog/atom.xml" rel="alternate" title="anselmolsm.org" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Lusitana:400,700' rel='stylesheet' type='text/css'>
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-6093467-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">anselmolsm.org</a></h1>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/blog/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:anselmolsm.org" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Home</a></li>
+  <li><a href="/blog">Blog</a></li>
+  <li><a href="/links">My Links</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">CoolerMaster X-Craft & Linux</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-10-01T00:00:00-03:00" pubdate data-updated="true">October 01, 2008</time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>EDIT: Veja nos comentários o que foi postado pelo Luis. Ele indica como contornar o problema sem precisar de patch e recompilar o kernel. =)</p>
+
+<p>Adquiri recentemente um case para HD externo CoolerMaster X-Craft 310 e acabei sendo pego de surpresa quando vi que ele não era devidamente reconhecido. Nos logs apareciam mensagens do tipo:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>usb 7-3: new high speed USB device using ehci_hcd and address 13
+</span><span class='line'>usb 7-3: device descriptor read/64, error -32
+</span><span class='line'>usb 7-3: device descriptor read/64, error -32
+</span><span class='line'>usb 7-3: new high speed USB device using ehci_hcd and address 14
+</span><span class='line'>usb 7-3: device descriptor read/64, error -32
+</span><span class='line'>usb 7-3: device descriptor read/64, error -32
+</span><span class='line'>usb 7-3: new high speed USB device using ehci_hcd and address 15
+</span><span class='line'>usb 7-3: device not accepting address 15, error -110
+</span><span class='line'>usb 7-3: new high speed USB device using ehci_hcd and address 16
+</span><span class='line'>usb 7-3: device not accepting address 16, error -110
+</span><span class='line'>hub 7-0:1.0: unable to enumerate USB device on port 3
+</span><span class='line'>usb 5-1: new full speed USB device using uhci_hcd and address 20
+</span><span class='line'>usb 5-1: device descriptor read/64, error -32</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Bateu a dúvida se o problema era com o hardware, mas isso foi descartado ao verificar que o o case+HD funcionaram no Windão. Procurando na Internet, acabei encontrando várias queixas no (http://forum.coolermaster.com/search.php?st=0&amp;sk=t&amp;sd=d&amp;keywords=x+craft+linux)[fórum] da CoolerMaster sobre problemas com vários outros modelos. Todos eles receberam respostas (sobre o suporte a Linux) do tipo: &#8220;Unfortunately it isn&#8217;t.  We apologize for any inconvenience.&#8221;</p>
+
+<p>Resolvi então dar uma olhada no <a href="http://bugzilla.kernel.org/">bugzilla</a> do kernel, onde encontrei o bug report <a href="http://bugzilla.kernel.org/show_bug.cgi?id=8639">8639</a> que fala sobre o modelo X-Craft 360 e de uma solução para o mesmo problema que eu estava tendo.</p>
+
+<p>Há um <a href="http://kerneltrap.org/mailarchive/linux-usb/2008/9/16/3311254">e-mail</a> enviado por Jaroslav Kysela para a lista <a href="http://vger.kernel.org/vger-lists.html#linux-usb">linux-usb</a> que explica com mais detalhes o problema e a solução. O problema parece residir no fato de que em geral os chips USB 2.0 levam cerca de 5 segundos para responderem à requisição <a href="http://www.gelato.unsw.edu.au/lxr/source/include/linux/usb_ch9.h#L56">USB_REQ_GET_DESCRIPTOR</a>, entretanto o chip utilizado na linha X-Craft demora cerca de 10 segundos. Assim, com o timeout, não há a correta identificação do dispositivo.</p>
+
+<p>Até o kernel 2.6.27-rc8 a alteração não havia sido incorporada ao código, mas provavelmente algo será feito nesse sentido numa versão futura. Até lá, o <a href="http://www.anselmolsm.org/blog/files/patch-2.6.27-rc8.patch">patch</a> sugerido dá conta do serviço. O que é feito nele é a simples alteração do timeout de 5 para 12 segundos.</p>
+
+<p>Testei com a versão 2.6.27-rc8, mas a alteração deve funcionar também com a 2.6.26.</p>
+
+<hr />
+
+<ul>
+<li>PS1: O patch aqui disponibilizado não é meu (infelizmente =P), mas sim a versão da segunda solução proposta por J. Kysela.</li>
+<li>PS2: o usuário &#8221;<a href="http://forum.coolermaster.com/viewtopic.php?f=6&amp;amp;t=10947&amp;amp;sid=5564807c06799b5b330592f12371d15c#p85556">tinga</a>&#8221; usado no fórum da CoolerMaster é uma homenagem à uma grande personalidade da Unicamp =)</li>
+<li>PS3: Correções sobre eventuais bobagens que eu tenha escrito aqui são bem vindas.</li>
+<li>EDIT PS4: Pessoas, não adianta só aplicar o patch e esperar algo acontecer, precisa recompilar o kernel, instalar e rebootar&#8230;</li>
+</ul>
+
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Anselmo L. S. Melo</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-10-01T00:00:00-03:00" pubdate data-updated="true">October 01, 2008</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/geek/'>Geek</a>, <a class='category' href='/blog/categories/hw/'>hw</a>, <a class='category' href='/blog/categories/linux/'>linux</a>, <a class='category' href='/blog/categories/patch/'>patch</a>, <a class='category' href='/blog/categories/pt-br/'>pt_BR</a>, <a class='category' href='/blog/categories/usb/'>usb</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://anselmolsm.org/blog/coolermaster-x-craft-linux/" data-via="" data-counturl="http://anselmolsm.org/blog/coolermaster-x-craft-linux/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/avast-salty-sea-dog/" title="Previous Post: Avast, salty sea-dog!">&laquo; Avast, salty sea-dog!</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/opera-mini-psp/" title="Next Post: Opera Mini - PSP">Opera Mini - PSP &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/a-few-words-about-2012/">A few words about 2012</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/qt-5-uihelpers/">Qt 5 UiHelpers</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/working-in-the-open-again/">Working in the open again</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/qt-contributors-summit/">Qt Contributors' Summit</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/meego-conf-2011-san-francisco/">Meego Conf 2011 - San Francisco</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Anselmo L. S. Melo -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'anselmolsm';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://anselmolsm.org/blog/coolermaster-x-craft-linux/';
+        var disqus_url = 'http://anselmolsm.org/blog/coolermaster-x-craft-linux/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

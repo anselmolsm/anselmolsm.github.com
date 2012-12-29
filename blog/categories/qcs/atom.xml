@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: qcs | anselmolsm.org]]></title>
+  <link href="http://anselmolsm.org/blog/categories/qcs/atom.xml" rel="self"/>
+  <link href="http://anselmolsm.org/"/>
+  <updated>2012-12-29T16:57:22-02:00</updated>
+  <id>http://anselmolsm.org/</id>
+  <author>
+    <name><![CDATA[Anselmo L. S. Melo]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Qt Contributors' Summit]]></title>
+    <link href="http://anselmolsm.org/blog/qt-contributors-summit/"/>
+    <updated>2011-06-17T00:00:00-03:00</updated>
+    <id>http://anselmolsm.org/blog/qt-contributors-summit</id>
+    <content type="html"><![CDATA[<p><div class="imagecc" style="width:216px"><a href="http://developer.qt.nokia.com/groups/qt_contributors_summit/wiki" title="I'm going to the Qt Contributors' Summit"><img src="http://get.qt.nokia.com/marketing/summit_01.png" width="196" height="121" alt="I'm going to the Qt Contributors' Summit" border=0></a><br>I'm going to the Qt Contributors' Summit</div></p>
+
+<p>We are in Berlin, attending the Qt Contributor's Summit. 265 people are discussing very important (and interesting) topics for Qt 5 and the open governance. You can follow what's happening here using the hash code #qtcs on several social networks. And of course, you can check the <a href="http://developer.qt.nokia.com/groups/qt_contributors_summit/wiki">wiki page of the event</a>.</p>
+
+<p>Personally, I am attending sessions related with QML, Qt-Components, <a href="http://developer.qt.nokia.com">DevNet</a> and open governance.</p>
+
+<p>And yesterday was Thursday, also known as the "Yellow Day":</p>
+
+<p><div class="imagecc" style="width:660px"><a href="/blog/images/2011/06/diaamarelo.jpg" title="Ok, Ademar was not wearing yellow t-shirt. Well, imagine him as the goalkeeper of the team ;)"><img src="/blog/images/2011/06/diaamarelo.jpg" width="640" height="480" alt="Ok, Ademar was not wearing yellow t-shirt. Well, imagine him as the goalkeeper of the team ;)" border=0></a><br>Ok, Ademar was not wearing yellow t-shirt. Well, imagine him as the goalkeeper of the team ;)</div></p>
+]]></content>
+  </entry>
+  
+</feed>

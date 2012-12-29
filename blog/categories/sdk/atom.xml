@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: sdk | anselmolsm.org]]></title>
+  <link href="http://anselmolsm.org/blog/categories/sdk/atom.xml" rel="self"/>
+  <link href="http://anselmolsm.org/"/>
+  <updated>2012-12-29T16:57:22-02:00</updated>
+  <id>http://anselmolsm.org/</id>
+  <author>
+    <name><![CDATA[Anselmo L. S. Melo]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[MADDE + Qt 4.7]]></title>
+    <link href="http://anselmolsm.org/blog/madde-qt-4-7/"/>
+    <updated>2010-06-10T00:00:00-03:00</updated>
+    <id>http://anselmolsm.org/blog/madde-qt-4-7</id>
+    <content type="html"><![CDATA[<p><a href="http://wiki.maemo.org/Maemo_5/PR1.2">Maemo 5 PR 1.2</a> is out with Qt 4.6.2  installed, so developers now can create applications with Qt 4.6 using either the <a href="http://wiki.maemo.org/Documentation/Maemo_5_Final_SDK_Installation">official scratchbox based SDK</a> or <a href="http://wiki.maemo.org/MADDE">MADDE</a> (remember, "<strong>MADDE</strong> is currently a <strong>technology preview</strong>.")</p>
+
+<p>BUT... there are people who prefer "<a href="http://www.youtube.com/watch?v=q95BRB_BPiU">Livin' on the Edge</a>". If you are one of those and already want/need to develop with Qt 4.7 (<em>not released yet!</em>) for Maemo 5, using MADDE to build your applications / packages, here is an update to the procedure first <a href="http://labs.trolltech.com/blogs/2010/02/08/qt-46-for-maemo-5-applications-on-mac-os-x-take-ii/">published by the troll ﻿Harald Fernengel</a> (AKA harryF). Although the title says "on MacOS X", the steps also work on Linux.</p>
+
+<p>Step-by-step:</p>
+
+<ul>
+<li>Install MADDE. <a href="http://tablets-dev.nokia.com/MADDE.php">Download it here</a>.</li>
+<li>If you are <strong>not</strong> using a Debian based distro, you need to install the "﻿﻿Tools for Debian Packages" package of your distribution (e.g. "deb" on openSUSE, sys-apps/debianutils on Gentoo).</li>
+<li>Download the script ﻿<a href="http://anselmolsm.org/public/qt/madde-qt47/fetch-qt4.7.0-latest.sh">fetch-qt4.7.0-latest.sh</a>. This script downloads the libqt4-experimental packages from repository.maemo.org and installs then in your MADDE - Before you run the script, remember to adjust the MADDE_PATH variable according to the path you installed MADDE.</li>
+<li>Download <a href="https://www.amazon.com/clouddrive/share?s=fX_jj9QbRhMmliRXU_06OE">qt4-tools-latest.tar.gz</a>. It contains the Qt tools compiled for the correspondent version, configured for cross compiling. Extract to /opt/qt4-maemo5.</li>
+<li>Check if <strong>mad</strong> is in your PATH.</li>
+</ul>
+
+
+<p>To build an application using your fresh environment, run <strong>/opt/qt4-maemo5/bin/qmake &amp;&amp; make .</strong></p>
+
+<p>If you succeeded in the setup process, this should result in a armel binary ready to run on N900. To generate a deb package, you can use the tools offered by MADDE to build a skeleton of debian package and so on.</p>
+
+<p>To run your application on N900, install libqt4-experimental-* packages. If QtQuick (QML) is part of your plans, qmlviewer  is in the package qt4-experimental-declarative-qmlviewer .</p>
+]]></content>
+  </entry>
+  
+</feed>

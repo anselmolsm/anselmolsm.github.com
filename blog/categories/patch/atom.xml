@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: patch | anselmolsm.org]]></title>
+  <link href="http://anselmolsm.org/blog/categories/patch/atom.xml" rel="self"/>
+  <link href="http://anselmolsm.org/"/>
+  <updated>2012-12-29T16:57:22-02:00</updated>
+  <id>http://anselmolsm.org/</id>
+  <author>
+    <name><![CDATA[Anselmo L. S. Melo]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[CoolerMaster X-Craft & Linux]]></title>
+    <link href="http://anselmolsm.org/blog/coolermaster-x-craft-linux/"/>
+    <updated>2008-10-01T00:00:00-03:00</updated>
+    <id>http://anselmolsm.org/blog/coolermaster-x-craft-linux</id>
+    <content type="html"><![CDATA[<p>EDIT: Veja nos comentários o que foi postado pelo Luis. Ele indica como contornar o problema sem precisar de patch e recompilar o kernel. =)</p>
+
+<p>Adquiri recentemente um case para HD externo CoolerMaster X-Craft 310 e acabei sendo pego de surpresa quando vi que ele não era devidamente reconhecido. Nos logs apareciam mensagens do tipo:</p>
+
+<p><code>
+usb 7-3: new high speed USB device using ehci_hcd and address 13
+usb 7-3: device descriptor read/64, error -32
+usb 7-3: device descriptor read/64, error -32
+usb 7-3: new high speed USB device using ehci_hcd and address 14
+usb 7-3: device descriptor read/64, error -32
+usb 7-3: device descriptor read/64, error -32
+usb 7-3: new high speed USB device using ehci_hcd and address 15
+usb 7-3: device not accepting address 15, error -110
+usb 7-3: new high speed USB device using ehci_hcd and address 16
+usb 7-3: device not accepting address 16, error -110
+hub 7-0:1.0: unable to enumerate USB device on port 3
+usb 5-1: new full speed USB device using uhci_hcd and address 20
+usb 5-1: device descriptor read/64, error -32
+</code></p>
+
+<p>Bateu a dúvida se o problema era com o hardware, mas isso foi descartado ao verificar que o o case+HD funcionaram no Windão. Procurando na Internet, acabei encontrando várias queixas no (http://forum.coolermaster.com/search.php?st=0&amp;sk=t&amp;sd=d&amp;keywords=x+craft+linux)[fórum] da CoolerMaster sobre problemas com vários outros modelos. Todos eles receberam respostas (sobre o suporte a Linux) do tipo: "Unfortunately it isn't.  We apologize for any inconvenience."</p>
+
+<p>Resolvi então dar uma olhada no <a href="http://bugzilla.kernel.org/">bugzilla</a> do kernel, onde encontrei o bug report <a href="http://bugzilla.kernel.org/show_bug.cgi?id=8639">8639</a> que fala sobre o modelo X-Craft 360 e de uma solução para o mesmo problema que eu estava tendo.</p>
+
+<p>Há um <a href="http://kerneltrap.org/mailarchive/linux-usb/2008/9/16/3311254">e-mail</a> enviado por Jaroslav Kysela para a lista <a href="http://vger.kernel.org/vger-lists.html#linux-usb">linux-usb</a> que explica com mais detalhes o problema e a solução. O problema parece residir no fato de que em geral os chips USB 2.0 levam cerca de 5 segundos para responderem à requisição <a href="http://www.gelato.unsw.edu.au/lxr/source/include/linux/usb_ch9.h#L56">USB_REQ_GET_DESCRIPTOR</a>, entretanto o chip utilizado na linha X-Craft demora cerca de 10 segundos. Assim, com o timeout, não há a correta identificação do dispositivo.</p>
+
+<p>Até o kernel 2.6.27-rc8 a alteração não havia sido incorporada ao código, mas provavelmente algo será feito nesse sentido numa versão futura. Até lá, o <a href="http://www.anselmolsm.org/blog/files/patch-2.6.27-rc8.patch">patch</a> sugerido dá conta do serviço. O que é feito nele é a simples alteração do timeout de 5 para 12 segundos.</p>
+
+<p>Testei com a versão 2.6.27-rc8, mas a alteração deve funcionar também com a 2.6.26.</p>
+
+<hr />
+
+<ul>
+<li>PS1: O patch aqui disponibilizado não é meu (infelizmente =P), mas sim a versão da segunda solução proposta por J. Kysela.</li>
+<li>PS2: o usuário "<a href="http://forum.coolermaster.com/viewtopic.php?f=6&amp;amp;t=10947&amp;amp;sid=5564807c06799b5b330592f12371d15c#p85556">tinga</a>" usado no fórum da CoolerMaster é uma homenagem à uma grande personalidade da Unicamp =)</li>
+<li>PS3: Correções sobre eventuais bobagens que eu tenha escrito aqui são bem vindas.</li>
+<li>EDIT PS4: Pessoas, não adianta só aplicar o patch e esperar algo acontecer, precisa recompilar o kernel, instalar e rebootar...</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+</feed>

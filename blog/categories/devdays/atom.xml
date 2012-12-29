@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: DevDays | anselmolsm.org]]></title>
+  <link href="http://anselmolsm.org/blog/categories/devdays/atom.xml" rel="self"/>
+  <link href="http://anselmolsm.org/"/>
+  <updated>2012-12-29T16:57:22-02:00</updated>
+  <id>http://anselmolsm.org/</id>
+  <author>
+    <name><![CDATA[Anselmo L. S. Melo]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[If you’re going to San Francisco…]]></title>
+    <link href="http://anselmolsm.org/blog/if-youre-going-to-san-francisco/"/>
+    <updated>2010-11-02T00:00:00-02:00</updated>
+    <id>http://anselmolsm.org/blog/if-youre-going-to-san-francisco</id>
+    <content type="html"><![CDATA[<p>"...You're gonna meet some gentle people there"</p>
+
+<p>This part of the Scott Mackenzie's famous song is definitely true. I'm in <a href="http://en.wikipedia.org/wiki/San_Francisco">San Francisco</a> since last Friday and I'm enjoying the city.</p>
+
+<p>The real reason for this trip is the <a href="http://qt.nokia.com/qtdevdays2010">Qt Developer Days</a>, which started yesterday with the training sections and the demo area, where I could see different kind of applications, products and ideas using <a href="http://qt.nokia.com">Qt</a> or created to ease the development with Qt.</p>
+
+<p>It's just a short post, in a few minutes there will be the first keynote and I have to go downstairs. :-)</p>
+
+<p>This is my first DevDays, special thanks to the <a href="http://developer.qt.nokia.com/">Qt Developer Network</a> guys who decided to <a href="http://developer.qt.nokia.com/blog/view/qt_devnet_at_qt_devdays">bring some of the contributors</a>!</p>
+
+<p><div class="imagecc" style="width:469px"><a href="/blog/images/2010/11/gondengate.jpg" title="The Golden Gate Bridge"><img src="/blog/images/2010/11/gondengate.jpg" width="449" height="337" alt="The Golden Gate Bridge" border=0></a><br>The Golden Gate Bridge</div></p>
+]]></content>
+  </entry>
+  
+</feed>

@@ -1,0 +1,419 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Qt 5 UiHelpers - anselmolsm.org</title>
+  <meta name="author" content="Anselmo L. S. Melo">
+
+  
+  <meta name="description" content="In my previous post I mentioned one of the experiments we are currently working on.
+Now it is time to introduce the Qt 5 playground project called &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://anselmolsm.org/blog/qt-5-uihelpers/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/blog/atom.xml" rel="alternate" title="anselmolsm.org" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Lusitana:400,700' rel='stylesheet' type='text/css'>
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-6093467-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">anselmolsm.org</a></h1>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/blog/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:anselmolsm.org" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Home</a></li>
+  <li><a href="/blog">Blog</a></li>
+  <li><a href="/links">My Links</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Qt 5 UiHelpers</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-04-13T00:00:00-03:00" pubdate data-updated="true">April 13, 2012</time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>In <a href="http://anselmolsm.org/blog/working-in-the-open-again/">my previous post</a> I mentioned one of the experiments <a href="http://www.indt.org/?lang=en">we</a> are currently working on.
+Now it is time to introduce the Qt 5 playground project called UiHelpers - Fortunately, this name will change ;)
+Those who follow the <a href="http://lists.qt-project.org/pipermail/development">Qt development mailing list</a> already read about it, the idea about this post is to reach more people from the community in general.</p>
+
+<p><strong>Context</strong></p>
+
+<p>If you are already familiar with the structure of Qt 5 code, feel free to jump to the next section.</p>
+
+<p>In Qt 4, the whole source code is in the same git repository. The traditional widgets derived from QWidget are part of the QtGui module and represent a central piece for the GUI application development.</p>
+
+<p>In Qt 5, things changed. Qt code were splitted in many repositories which group Qt libraries depending on their functionalities.
+Examples of repositories are qtbase, qtdeclarative, qtjsbackend, qtxmlpatterns, qtsvg, qttools, etc.
+As you may know, QtQuick 2 became a first class citizen in Qt 5, which means qtdeclarative is one of the main repositories, house of QtQuick and QtQml classes.</p>
+
+<p>But, there are classes that provide the base for QtQuick 2 work properly - they are part of the qtbase repo. There you find QtCore,
+QtGui, QtNetwork, QtOpenGL, QtPlatformSupport, QtXml, QtWidgets, etc.</p>
+
+<p>Wait: What&#8217;s the difference between QtGui and QtWidgets?</p>
+
+<p>As part of the changes of Qt 5, QtGui is now focused in the basic infrastructure for GUI work on different platforms. For example, it is the place for the platform abstraction layer, window management, image handling, etc.</p>
+
+<p>QtWidgets, as you can conclude based on its name, contains the children of QWidget: QPushButton, QSpinBox, QMainWindow, etc. Also, there are non-widgets classes in QtWidgets, some of them because they are internally too coupled to QWidget classes.</p>
+
+<p><strong>Origins</strong></p>
+
+<p>In this <a href="http://lists.qt-project.org/pipermail/development/2011-December/000932.html">thread</a> it was mentioned the case of QUndoStack, QUndoCommand that are in QtWidgets but can be useful in other contexts where developers do not want to link against QtWidgets just because of this kind of helper classes.
+Later, in the <a href="http://codereview.qt-project.org/#change,15857">change 15857</a> (with the help of ogoffart), we discussed about moving QUndo* out of QtWidgets. First, we moved these classes to QtGui what as not considered correct given the new motivation of this lib. Then, another idea was to move the classes to a new lib, inside qtbase. It was not considered ideal and the decision was to create a separated repo for these classes, leaving QtWidgets untouched (since the Qt community do not want to introduce new bugs in this lib).</p>
+
+<p><strong>Current status</strong></p>
+
+<p>We set a <a href="http://qt-project.org/wiki/Qt-5-Ui-Helpers">wiki page</a> where it is possible to check the classes made available out of QtWidgets. Also, there are instructions about where to download the source code, build, test and contact us.</p>
+
+<p>Besides moving classes out of QtWidgets, some prototypes of convenience APIs were created for QtQuick 2 developers and we are very interested in receiving feedback about them. It&#8217;s worth mentioning the QML API for UndoStack and the CompletionModel which is based on the internals of QCompleter and was made available in a QML friendly way.</p>
+
+<p>The following example shows a possible use case for the CompletionModel. Improving the models supported by <em>sourceModel</em> is part of the ToDo list. The ListView is going to show the updated list that currently satisfies what is written in the TextInput.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>TextInput {
+</span><span class='line'>    id: input
+</span><span class='line'>}
+</span><span class='line'>
+</span><span class='line'>CompletionModel {
+</span><span class='line'>    id: completionModel
+</span><span class='line'>    sourceModel: ["Ascension Island", "Andorra", "Afghanistan"]
+</span><span class='line'>    completionPrefix: input.text
+</span><span class='line'>    caseSensitivity: Qt.CaseInsensitive
+</span><span class='line'>}
+</span><span class='line'>
+</span><span class='line'>ListView {
+</span><span class='line'>    model: completionModel
+</span><span class='line'>    delegate: Text { text: modelData }
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The two examples bellow show the UndoStack and two items that represent commands. The idea of UndoPropertyCommand is to enable track the changes of some properties. In the example, we are going to track x and y when myRect is moved.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>UndoStack {
+</span><span class='line'>    id: stack
+</span><span class='line'>    undoLimit: 5
+</span><span class='line'>}
+</span><span class='line'>
+</span><span class='line'>UndoPropertyCommand {
+</span><span class='line'>    id: moveCommand
+</span><span class='line'>    properties: ["x", "y"]
+</span><span class='line'>}
+</span><span class='line'>
+</span><span class='line'>Rectangle {
+</span><span class='line'>    id: myRect
+</span><span class='line'>
+</span><span class='line'>    (...)
+</span><span class='line'>    
+</span><span class='line'>    MouseArea {
+</span><span class='line'>        (...)
+</span><span class='line'>        drag.target: parent
+</span><span class='line'>        onPressed: stack.push(moveCommand, myRect);
+</span><span class='line'>    }
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<p>UndoCommand is another element used to represent commands. The difference here is that it allows the customization of the actions onUndo and onRedo the command.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>UndoCommand {
+</span><span class='line'>    id: aCommand
+</span><span class='line'>    
+</span><span class='line'>    onUndo: doAThing(target);
+</span><span class='line'>    onRedo: undoAThing(target);
+</span><span class='line'>}
+</span><span class='line'>
+</span><span class='line'>Button {
+</span><span class='line'>    onClicked: stack.push(aCommand, target);
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<p><strong>Future</strong></p>
+
+<p>Maybe one day this playground project gets promoted and become a Qt Add-on, but there is no expectation it will happen before 5.0. In the meanwhile, there is a ToDo list with some topics we consider important to handle, like better examples, more tests, docs, etc.</p>
+
+<p>We are looking forward receiving more opinions about this work and, as always, contributors are welcome!</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Anselmo L. S. Melo</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-04-13T00:00:00-03:00" pubdate data-updated="true">April 13, 2012</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/development/'>Development</a>, <a class='category' href='/blog/categories/gpsl/'>GPSL</a>, <a class='category' href='/blog/categories/indt/'>INdT</a>, <a class='category' href='/blog/categories/kde/'>KDE</a>, <a class='category' href='/blog/categories/qt/'>Qt</a>, <a class='category' href='/blog/categories/qt5/'>Qt5</a>, <a class='category' href='/blog/categories/work/'>Work</a>, <a class='category' href='/blog/categories/en/'>en</a>, <a class='category' href='/blog/categories/openbossa/'>openBossa</a>, <a class='category' href='/blog/categories/uihelpers/'>uihelpers</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://anselmolsm.org/blog/qt-5-uihelpers/" data-via="" data-counturl="http://anselmolsm.org/blog/qt-5-uihelpers/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/working-in-the-open-again/" title="Previous Post: Working in the open again">&laquo; Working in the open again</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/a-few-words-about-2012/" title="Next Post: A few words about 2012">A few words about 2012 &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/a-few-words-about-2012/">A few words about 2012</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/qt-5-uihelpers/">Qt 5 UiHelpers</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/working-in-the-open-again/">Working in the open again</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/qt-contributors-summit/">Qt Contributors' Summit</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/meego-conf-2011-san-francisco/">Meego Conf 2011 - San Francisco</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Anselmo L. S. Melo -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'anselmolsm';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://anselmolsm.org/blog/qt-5-uihelpers/';
+        var disqus_url = 'http://anselmolsm.org/blog/qt-5-uihelpers/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

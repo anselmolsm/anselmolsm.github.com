@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: danger | anselmolsm.org]]></title>
+  <link href="http://anselmolsm.org/blog/categories/danger/atom.xml" rel="self"/>
+  <link href="http://anselmolsm.org/"/>
+  <updated>2012-12-29T16:57:22-02:00</updated>
+  <id>http://anselmolsm.org/</id>
+  <author>
+    <name><![CDATA[Anselmo L. S. Melo]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Living on the edge]]></title>
+    <link href="http://anselmolsm.org/blog/living-on-the-edge/"/>
+    <updated>2008-09-14T00:00:00-03:00</updated>
+    <id>http://anselmolsm.org/blog/living-on-the-edge</id>
+    <content type="html"><![CDATA[<p>Querendo formatar um <a href="http://en.wikipedia.org/wiki/Secure_Digital_card">cartão SD</a> como <a href="http://en.wikipedia.org/wiki/Ext2">ext2</a>, digitei <strong>mkfs.ext2 /dev/sd &lt;TAB></strong> ... só que cartão SD não é mapeado como /dev/sdb (como acontece com pendrives, por exemplo), e sim /dev/mmcblk0. Com isso, o &lt;TAB> completou com /dev/sda (o HD do meu notebook)...</p>
+
+<p><code>
+anselmo@persephone:~$ mkfs.ext2 /dev/sda
+mke2fs 1.40.8 (13-Mar-2008)
+/dev/sda is entire device, not just one partition!
+Proceed anyway? (y,n)
+</code></p>
+
+<p>por sorte não o fiz como root heheh... Tá, podem me chamar de <a href="http://en.wikipedia.org/wiki/Newbie">nilba</a> agora.</p>
+
+<p>PS: pra galera <a href="http://en.wikipedia.org/wiki/Windows">Windera</a>, quase fiz um "format c:"</p>
+
+<p>PS2: Embora <a href="http://www.libertatia.org/blog/">alguns</a> acreditem que "<a href="http://en.wikipedia.org/wiki/Livin%27_on_the_Edge">Living on the Edge</a>" é do <a href="http://en.wikipedia.org/wiki/Bon_Jovi">Bon Jovi</a>, obviamente é do <a href="http://en.wikipedia.org/wiki/Aerosmith">Aerosmith</a> =P</p>
+]]></content>
+  </entry>
+  
+</feed>

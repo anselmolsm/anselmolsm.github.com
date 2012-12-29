@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: gcds | anselmolsm.org]]></title>
+  <link href="http://anselmolsm.org/blog/categories/gcds/atom.xml" rel="self"/>
+  <link href="http://anselmolsm.org/"/>
+  <updated>2012-12-29T16:57:22-02:00</updated>
+  <id>http://anselmolsm.org/</id>
+  <author>
+    <name><![CDATA[Anselmo L. S. Melo]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[fisl10]]></title>
+    <link href="http://anselmolsm.org/blog/fisl10/"/>
+    <updated>2009-07-02T00:00:00-03:00</updated>
+    <id>http://anselmolsm.org/blog/fisl10</id>
+    <content type="html"><![CDATA[<p>OBS: Este post deveria ter sido publicado em <strong>1 de Julho</strong> mas não ficou pronto a tempo. Só consegui terminá-lo hoje, 5 de Julho. Acabei publicando sem estar todo terminado para não perder de vez o contexto.</p>
+
+<hr />
+
+<p>De 24 a 27 de junho aconteceu a décima edição do Fórum Internacional de Software Livre - fisl, em Porto Alegre-RS. Foi a primeira vez que compareci ao evento e tive a oportunidade de colaborar com o pessoal da <a href="http://www.qtsoftware.com">Qt Software</a> no estande no evento, montado em conjunto com o <a href="http://www.openbossa.org">openBossa</a>/<a href="http://www.indt.org.br">INdT</a>.</p>
+
+<p>Houve bastante interesse (e também curiosidade) a respeito do framework Qt. Muitas pessoas procurando informações técnicas, treinamentos, esclarecendo dúvidas sobre o uso do Qt, sobre licenças, o que mudou desde que a Nokia comprou a Trolltech (agora Qt Software) e sobre as novidades que estarão disponíveis, ainda este ano, com o lançamento da versão 4.6.</p>
+
+<p>Claro que também foi um trabalho de divulgação para os que não conheciam a ferramenta. Curiosamente alguns destes são usuários do <a href="http://www.kde.org">KDE</a>, que é o grande exemplo de uso do Qt (por ser bem maior e mais complexo que <a href="http://www.skype.com">Skype</a>, <a href="http://earth.google.com/">Google Earth</a>, <a href="http://www.qtsoftware.com/qt-in-use">entre outros</a>).</p>
+
+<p>O <a href="http://www.openbossa.org/fisl">desafio Qt/openBossa</a>, realizado pouco antes e durante o evento, teve como vencedor Paulo Cesar Ferreira com o projeto QuickSocial - já fazendo uso de uma das novidades em desenvolvimento no Qt, a <a href="http://labs.trolltech.com/blogs/author/qtdeclarative/">Declarative UI</a>, disponível nos repositórios em <a href="http://qt.gitorious.org">qt.gitorious.org</a>. O primeiro colocado ganhou um Internet Tablet <a href="http://en.wikipedia.org/wiki/Nokia_N810">Nokia N810</a>, um exemplar do livro <a href="http://www.amazon.com/Programming-Prentice-Source-Software-Development/dp/0132354160">"C++ GUI Development with Qt4"</a> além de uma viagem de uma semana para o Recife onde participará de um pequeno treinamento de Qt no INdT. Também ganharam exemplares deste livro o segundo colocado, Rafael Floriano da Silva (PyRSS) e o terceiro Caio Ariede (Qtaxy).</p>
+
+<p>Houve também o encontro da comunidade <a href="http://br.kde.org">KDE Brasil</a>. Muitas idéias foram levantadas, espero que consigamos aumentar a integração dos usuários e desenvolvedores brasileiros e melhorar a divulgação.</p>
+
+<p>De volta ao Recife, uma certa pressa para concluir algumas tarefas antes de partirmos para o <a href="http://www.grancanariadesktopsummit.org/">Gran Canaria Desktop Summit</a>, evento que reunirá pela primeira vez aKademy (evento anual do KDE) e  GUADEC (evento do GNOME) e acontecerá em <a href="http://pt.wikipedia.org/wiki/Las_Palmas">Las Palmas</a> de <a href="http://pt.wikipedia.org/wiki/Gran_Can%C3%A1ria">Gran Canária</a>, na Espanha. Será uma grande experiência junto aos desenvolvedores do KDE assim como teremos novamente a chance de conversar pessoalmente com os desenvolvedores da Qt Software que também estarão lá. Meus colegas de trabalho (um tanto "Silvio Santos" essa frase) Artur (aka <a href="http://blog.morpheuz.cc">MoRpHeUz</a>) , <a href="http://cmarcelo.wordpress.com">Caio Marcelo</a> e <a href="http://blog.eduardofleury.com">Eduardo Fleury</a> (estes em dupla) tiveram palestras aceitas e falarão sobre o <a href="http://www.grancanariadesktopsummit.org/node/119">desenvolvimento de interfaces voltadas para netbooks</a> e sobre como <a href="http://www.grancanariadesktopsummit.org/node/136">o uso de diferentes  layouts</a> podem enriquecer a experiência dos usuários de software, respectivamente.</p>
+
+<p><img src="/blog/images/2009/07/gcds_summit_badge.serendipityThumb.png" width="300" height="154"></p>
+
+<p>Agora algumas horas de vôo pela frente =)</p>
+
+<p>--</p>
+
+<p>PS: Sim, virei um semi-analfabeto com as mudanças na Língua Portuguesa. Velha ortografia++.</p>
+]]></content>
+  </entry>
+  
+</feed>

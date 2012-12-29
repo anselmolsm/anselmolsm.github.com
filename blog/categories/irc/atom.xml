@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: irc | anselmolsm.org]]></title>
+  <link href="http://anselmolsm.org/blog/categories/irc/atom.xml" rel="self"/>
+  <link href="http://anselmolsm.org/"/>
+  <updated>2012-12-29T16:57:22-02:00</updated>
+  <id>http://anselmolsm.org/</id>
+  <author>
+    <name><![CDATA[Anselmo L. S. Melo]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[proporções]]></title>
+    <link href="http://anselmolsm.org/blog/proporcoes/"/>
+    <updated>2008-04-24T00:00:00-03:00</updated>
+    <id>http://anselmolsm.org/blog/proporcoes</id>
+    <content type="html"><![CDATA[<p><code>
+[10:16] &lt;anselmolsm&gt; luisfelipe, faz um favor, ve se o site do bb ta funfando ae
+[10:18] * luisfelipe is javaless
+[10:19] &lt;luisfelipe&gt; ta reinstalando aqui, ja testo
+[10:21] &lt;anselmolsm&gt; luisfelipe, (http://www.bb.com.br/"&gt;www.bb.com.br] - nao precisa logar
+[10:22] &lt;anselmolsm&gt; ta dando erro no site de cara
+[10:25] &lt;anselmolsm&gt; tava dando erro 500, agora foi
+[10:25] &lt;luisfelipe&gt; e agora a porra do site travou o iceweasel
+[10:25] &lt;luisfelipe&gt; muito obrigado anselmolsm
+[10:26] &lt;anselmolsm&gt; luisfelipe, agradeça ao seu querido banco
+[10:26] &lt;luisfelipe&gt; tomara que cresca uma arvore de jaca na frente da
+sua casa, e que ela de varios frutos em cima do seu carro
+[10:26] &lt;luisfelipe&gt; aheaehh
+</code></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[alegria passageira]]></title>
+    <link href="http://anselmolsm.org/blog/alegria-passageira/"/>
+    <updated>2008-04-03T00:00:00-03:00</updated>
+    <id>http://anselmolsm.org/blog/alegria-passageira</id>
+    <content type="html"><![CDATA[<p><code>
+[11:55] &lt;luisfelipe&gt; ja volto, perae
+[11:55] &lt;-- luisfelipe has left this server.
+[12:00] --&gt; luisfelipe has joined this channel(n=lfelipe@201-92-78-203.dsl.telesp.net.br).
+[12:01] &lt;luisfelipe&gt; ah, internet decente
+[12:01] &lt;luisfelipe&gt; coisa linda de deus
+[12:01] &lt;luisfelipe&gt; chegou o speedy
+[12:01] &lt;luisfelipe&gt; ehhehe
+[12:01] &lt;vcgomes&gt; aeee
+[12:04] &lt;-- luisfelipe has left this server (Ping timeout: 480 seconds))
+</code></p>
+]]></content>
+  </entry>
+  
+</feed>

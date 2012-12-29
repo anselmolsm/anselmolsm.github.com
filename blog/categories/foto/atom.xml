@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: foto | anselmolsm.org]]></title>
+  <link href="http://anselmolsm.org/blog/categories/foto/atom.xml" rel="self"/>
+  <link href="http://anselmolsm.org/"/>
+  <updated>2012-12-29T16:57:22-02:00</updated>
+  <id>http://anselmolsm.org/</id>
+  <author>
+    <name><![CDATA[Anselmo L. S. Melo]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Informações "Precisas"]]></title>
+    <link href="http://anselmolsm.org/blog/informacoes-precisas/"/>
+    <updated>2008-12-03T00:00:00-02:00</updated>
+    <id>http://anselmolsm.org/blog/informacoes-precisas</id>
+    <content type="html"><![CDATA[<p>Pena que a foto ficou um lixo...</p>
+
+<p><div class="imagecc" style="width:356px"><a href="/blog/images/2008/12/imag011.jpg" title="2001 - Uma Odisséia no espaço em Blu-ray"><img src="/blog/images/2008/12/imag011.jpg" width="336" height="448" alt="2001 - Uma Odisséia no espaço em Blu-ray" border=0></a><br>2001 - Uma Odisséia no espaço em Blu-ray</div></p>
+
+<p>E seguindo a onda "quanto mais informação melhor, não importa se estiver errada":</p>
+
+<p><div class="imagecc" style="width:291px"><a href="/blog/images/2008/12/1seg.jpg" title="1 second???"><img src="/blog/images/2008/12/1seg.jpg" width="271" height="303" alt="1 second???" border=0></a><br>1 second???</div></p>
+
+<p>Por que quem fez esse anúncio da loja achou razoável 1se<strong>g</strong> ser abreviação de "1 second" ?</p>
+]]></content>
+  </entry>
+  
+</feed>

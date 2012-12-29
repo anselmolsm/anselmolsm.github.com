@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: windera | anselmolsm.org]]></title>
+  <link href="http://anselmolsm.org/blog/categories/windera/atom.xml" rel="self"/>
+  <link href="http://anselmolsm.org/"/>
+  <updated>2012-12-29T16:57:22-02:00</updated>
+  <id>http://anselmolsm.org/</id>
+  <author>
+    <name><![CDATA[Anselmo L. S. Melo]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Canal 36]]></title>
+    <link href="http://anselmolsm.org/blog/canal-36/"/>
+    <updated>2008-12-10T00:00:00-02:00</updated>
+    <id>http://anselmolsm.org/blog/canal-36</id>
+    <content type="html"><![CDATA[<p>Madrugada, mudando de canais na NET.... eis que no canal 36 o Windão dando aquela rebootada esperta pra ficar beleza pra um novo dia....</p>
+
+<p><img class="center" src="/blog/images/2008/12/dsc04030r.jpg" width="600" height="450"></p>
+
+<p><img class="center" src="/blog/images/2008/12/dsc04031r.jpg" width="600" height="450"></p>
+]]></content>
+  </entry>
+  
+</feed>

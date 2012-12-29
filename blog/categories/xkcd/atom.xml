@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: xkcd | anselmolsm.org]]></title>
+  <link href="http://anselmolsm.org/blog/categories/xkcd/atom.xml" rel="self"/>
+  <link href="http://anselmolsm.org/"/>
+  <updated>2012-12-29T16:57:22-02:00</updated>
+  <id>http://anselmolsm.org/</id>
+  <author>
+    <name><![CDATA[Anselmo L. S. Melo]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Suporte técnico (xkcd)]]></title>
+    <link href="http://anselmolsm.org/blog/suporte-tecnico-xkcd/"/>
+    <updated>2009-08-24T00:00:00-03:00</updated>
+    <id>http://anselmolsm.org/blog/suporte-tecnico-xkcd</id>
+    <content type="html"><![CDATA[<p>Segunda-feira saiu no <a href="http://xkcd.com">xkcd</a> um <a href="http://xkcd.com/627/">diagrama</a> tão útil que eu <strong>tive que traduzir</strong> para poder usá-lo com os não falantes da língua inglesa.</p>
+
+<p>O texto é mais ou menos assim:</p>
+
+<pre><code>**Caros pais, avós, colegas de trabalho e outros "não computeiros".**
+**Nós não sabemos magicamente como fazer tudo em qualquer programa.**
+**Quando nós ajudamos vocês, geralmente fazemos o seguinte:**
+</code></pre>
+
+<p><img src="/blog/images/2009/08/tech_support_cheat_sheet.png" width="611" height="517"></p>
+
+<pre><code>**Por favor, imprimam este diagrama e pendurem próximo ao monitor.**
+**Parabéns! Você agora é o especialista de plantão!**
+</code></pre>
+]]></content>
+  </entry>
+  
+</feed>

@@ -1,0 +1,306 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>A script to configure Qt-S60 environment on Linux - anselmolsm.org</title>
+  <meta name="author" content="Anselmo L. S. Melo">
+
+  
+  <meta name="description" content="You may have noticed that Qt is being ported to S60, and as you can read here, daily builds are available as technology preview since the end of &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://anselmolsm.org/blog/a-script-to-configure-qt-s60-environment-on-linux/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/blog/atom.xml" rel="alternate" title="anselmolsm.org" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Lusitana:400,700' rel='stylesheet' type='text/css'>
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-6093467-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">anselmolsm.org</a></h1>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/blog/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:anselmolsm.org" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Home</a></li>
+  <li><a href="/blog">Blog</a></li>
+  <li><a href="/links">My Links</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">A script to configure Qt-S60 environment on Linux</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-10-14T00:00:00-03:00" pubdate data-updated="true">October 14, 2009</time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>You may have noticed that Qt is being ported to <a href="" title="http://en.wikipedia.org/wiki/S60_(software_platform)">S60</a>, and as you can read <a href="http://labs.trolltech.com/blogs/2009/09/24/daily-binaries-of-qt-for-symbians60-available/">here</a>, daily builds are available as technology preview since the end of September. At first, there are only MS Windows installers, but <a href="http://lizardo.wordpress.com/">Lizardo</a> did a <a href="http://lizardo.wordpress.com/2009/09/24/installing-qt-for-s60-daily-snapshots-on-linux/">great job</a> collecting and writing patches and instructions to make it possible to develop with Qt for S60 on Linux.</p>
+
+<p>To ease this process, I wrote a small script that does almost the same described in Lizardo&#8217;s post, with some new pseudo features. It needs some improvements, the known ones are marked with #XXX - contributions are welcome!</p>
+
+<p>It consists in 2 files, the script and a config file where the user can customize the directories where things will be installed, the directory of the downloaded files, the version of S60 that will be used. Initially it&#8217;s ready for S60 3rd edition FP2 and S60 5th edition (Check <a href="http://wiki.forum.nokia.com/index.php/Which_S60_SDK_should_I_use%3F">here</a> the version of your target device), etc.</p>
+
+<p>Running the script, the first step shows the URLs to files you have to download, but need login or other kind of interaction with the website. The script is a nice guy, when it&#8217;s possible &#8220;he&#8221; asks if you allow him to open those URLs in your default browser =)</p>
+
+<p>The script then downloads other files that are direct accessible and the installation begins. If everything goes right, in the end your environment will be ready for Qt-S60 development.</p>
+
+<p>Wanna try? Download a it <a href="https://gitorious.org/anselmolsm-labs/setupqts60env/archive-tarball/master">here</a> or git clone it:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git clone git://gitorious.org/anselmolsm-labs/setupqts60env.git</span></code></pre></td></tr></table></div></figure>
+
+
+<p>That&#8217;s it =)</p>
+
+<p><strong>ToDo:</strong></p>
+
+<ul>
+<li>Simplify updates of Qt-S60 in a environment already in use.</li>
+<li>Solve the #XXX in the script</li>
+<li>Probably there are other things that I don&#8217;t remember now =)</li>
+<li>UPDATE: 2009-10-17: There are some issues in qmake when using DEPLOYMENT</li>
+<li>UPDATE2: 2009-10-19: The old daily builds aren&#8217;t available anymore, a message there says that they &#8220;back tonight hopefully&#8221;</li>
+<li>UPDATE3: 2009-10-20: Builds are back =)</li>
+<li>UPDATE4: 2009-11-01: The gnupoc patch for Qt-S60 needs to be uptaded =/ .</li>
+<li>Hopefully it&#8217;s going to save us =) <a href="http://labs.trolltech.com/blogs/2009/10/28/a-new-symbian-toolchain-for-linux/">http://labs.trolltech.com/blogs/2009/10/28/a-new-symbian-toolchain-for-linux/</a></li>
+</ul>
+
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Anselmo L. S. Melo</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-10-14T00:00:00-03:00" pubdate data-updated="true">October 14, 2009</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/development/'>Development</a>, <a class='category' href='/blog/categories/gpsl/'>GPSL</a>, <a class='category' href='/blog/categories/indt/'>INdT</a>, <a class='category' href='/blog/categories/qt/'>Qt</a>, <a class='category' href='/blog/categories/qt-s60/'>Qt-S60</a>, <a class='category' href='/blog/categories/s60/'>S60</a>, <a class='category' href='/blog/categories/en/'>en</a>, <a class='category' href='/blog/categories/linux/'>linux</a>, <a class='category' href='/blog/categories/script/'>script</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://anselmolsm.org/blog/a-script-to-configure-qt-s60-environment-on-linux/" data-via="" data-counturl="http://anselmolsm.org/blog/a-script-to-configure-qt-s60-environment-on-linux/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/suporte-tecnico-xkcd/" title="Previous Post: Suporte técnico (xkcd)">&laquo; Suporte técnico (xkcd)</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/latinoware-2009-en/" title="Next Post: Latinoware 2009">Latinoware 2009 &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/a-few-words-about-2012/">A few words about 2012</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/qt-5-uihelpers/">Qt 5 UiHelpers</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/working-in-the-open-again/">Working in the open again</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/qt-contributors-summit/">Qt Contributors' Summit</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/meego-conf-2011-san-francisco/">Meego Conf 2011 - San Francisco</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Anselmo L. S. Melo -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'anselmolsm';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://anselmolsm.org/blog/a-script-to-configure-qt-s60-environment-on-linux/';
+        var disqus_url = 'http://anselmolsm.org/blog/a-script-to-configure-qt-s60-environment-on-linux/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

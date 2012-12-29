@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: talk | anselmolsm.org]]></title>
+  <link href="http://anselmolsm.org/blog/categories/talk/atom.xml" rel="self"/>
+  <link href="http://anselmolsm.org/"/>
+  <updated>2012-12-29T16:57:22-02:00</updated>
+  <id>http://anselmolsm.org/</id>
+  <author>
+    <name><![CDATA[Anselmo L. S. Melo]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Meego Conf 2011 - San Francisco]]></title>
+    <link href="http://anselmolsm.org/blog/meego-conf-2011-san-francisco/"/>
+    <updated>2011-05-23T00:00:00-03:00</updated>
+    <id>http://anselmolsm.org/blog/meego-conf-2011-san-francisco</id>
+    <content type="html"><![CDATA[<p>I am in San Francisco <a href="(http://www.anselmolsm.org/blog/if-youre-going-to-san-francisco/">again</a>! =), this time for the MeeGo Conference 2011.</p>
+
+<p>The event is about to begin with the keynote "The Future of MeeGo Starts Now" presented by the president of Linux Foundation, Jim Zemlin.</p>
+
+<p>This time, I'm going to present a talk too! The talk is today and the topic is "Writing applications for multiple MeeGo devices".</p>
+
+<p>There are other talks by openBossa/INdT guys, <a href="http://sf2011.meego.com/program/session-schedule">check the schedule</a>!</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Updates]]></title>
+    <link href="http://anselmolsm.org/blog/updates/"/>
+    <updated>2010-10-17T01:00:00-02:00</updated>
+    <id>http://anselmolsm.org/blog/updates</id>
+    <content type="html"><![CDATA[<p>Looooong time since my last post. Before writing about new things, an overview of what happened since June:</p>
+
+<ul>
+<li>In August, I went to the <a href="http://fslbh.org/">Belo Horizonte Free Software Festival</a> (in <a href="http://en.wikipedia.org/wiki/Betim">Betim</a> =), where I presented an introductory talk about F/OSS and KDE. It was a nice opportunity to explain some basic concepts to a beginner but very interested public. Thanks <a href="http://ev.kde.org">KDE e.V.</a> for the support and to the FSLBH organizers!</li>
+<li>I moved to another apartment (second time this year).</li>
+<li>I did <strong>not</strong> go to Akademy =(</li>
+<li>Our interns developed a simple, but nice, comics-reader as part of their studies to learn Qt. The source code is <a href="http://github.com/dakerfp/comics-reader">here</a> and there is a Maemo 5 package <a href="http://maemo.org/packages/package_instance/view/fremantle_extras-devel_free_armel/comics-reader/1.0.0-1/">here</a>.</li>
+<li>Two of our cute <a href="http://blog.morpheuz.cc/01/12/2009/qt-4-6-ow/">demos from the last year</a> grew up and became applications. The updated sources are available <a href="http://qt.gitorious.org/qt-labs/mobile-demos/commits/shoppinglist-app">here</a> and <a href="http://gitorious.org/mobile-weather">here</a>. Kudos to the guys who made it possible!</li>
+<li>I've been working in the development of <a href="http://dot.kde.org/2010/06/10/kde-pim-goes-mobile">kdepim-mobile</a> and, in parallel, I'm following the development of <a href="http://qt.gitorious.org/qt-components">Qt-Components</a>. It is interesting because kdepim-mobile is trying to to use QML as much as possible for the UI, what provides interesting feedback to Qt-Components.</li>
+<li>Patches for the widgets explorer. Since I started using a vertical panel on the right, I found some bugs and things to improve.</li>
+<li>I'm enjoying the <a href="http://developer.qt.nokia.com/">Qt Developer Network</a> - More about it in a future post :-)</li>
+<li>Some airport and flight minutes were dedicated to do a first translation of <a href="http://enzyme.commit-digest.org/">Enzyme</a> and <a href="http://commit-digest.org/">Commit-digest</a> to pt_BR. As I am not a translator, it's time to request help for the pt_BR translation team =)</li>
+</ul>
+
+
+<p>Someone said a few weeks ago that a good post must have a picture. Here is a picture of the Municipal Park and the  "<a href="http://www.tripadvisor.com.br/ShowUserReviews-g303374-d1523606-r38551748-Hippie_Fair-Belo_Horizonte_State_of_Minas_Gerais.html">Hippie Fair</a>", in <a href="http://en.wikipedia.org/wiki/Belo_Horizonte">Belo Horizonte</a>:</p>
+
+<p><div class="imagecc" style="width:660px"><a href="/blog/images/2010/10/bh.jpg" title="Belo Horizonte"><img src="/blog/images/2010/10/bh.jpg" width="640" height="360" alt="Belo Horizonte" border=0></a><br>Belo Horizonte</div></p>
+]]></content>
+  </entry>
+  
+</feed>

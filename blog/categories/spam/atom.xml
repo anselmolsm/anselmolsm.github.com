@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: spam | anselmolsm.org]]></title>
+  <link href="http://anselmolsm.org/blog/categories/spam/atom.xml" rel="self"/>
+  <link href="http://anselmolsm.org/"/>
+  <updated>2012-12-29T16:57:22-02:00</updated>
+  <id>http://anselmolsm.org/</id>
+  <author>
+    <name><![CDATA[Anselmo L. S. Melo]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Spams...]]></title>
+    <link href="http://anselmolsm.org/blog/spams/"/>
+    <updated>2008-08-21T00:00:00-03:00</updated>
+    <id>http://anselmolsm.org/blog/spams</id>
+    <content type="html"><![CDATA[<h1 class="YfMhcb"><span class="VrHWId">"Paris Hilton Wins Pulitzer Prize"</span></h1>
+
+
+<p><strong>Ok, ok...</strong></p>
+]]></content>
+  </entry>
+  
+</feed>

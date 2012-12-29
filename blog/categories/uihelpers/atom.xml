@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: uihelpers | anselmolsm.org]]></title>
+  <link href="http://anselmolsm.org/blog/categories/uihelpers/atom.xml" rel="self"/>
+  <link href="http://anselmolsm.org/"/>
+  <updated>2012-12-29T16:57:22-02:00</updated>
+  <id>http://anselmolsm.org/</id>
+  <author>
+    <name><![CDATA[Anselmo L. S. Melo]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Qt 5 UiHelpers]]></title>
+    <link href="http://anselmolsm.org/blog/qt-5-uihelpers/"/>
+    <updated>2012-04-13T00:00:00-03:00</updated>
+    <id>http://anselmolsm.org/blog/qt-5-uihelpers</id>
+    <content type="html"><![CDATA[<p>In <a href="http://anselmolsm.org/blog/working-in-the-open-again/">my previous post</a> I mentioned one of the experiments <a href="http://www.indt.org/?lang=en">we</a> are currently working on.
+Now it is time to introduce the Qt 5 playground project called UiHelpers - Fortunately, this name will change ;)
+Those who follow the <a href="http://lists.qt-project.org/pipermail/development">Qt development mailing list</a> already read about it, the idea about this post is to reach more people from the community in general.</p>
+
+<p><strong>Context</strong></p>
+
+<p>If you are already familiar with the structure of Qt 5 code, feel free to jump to the next section.</p>
+
+<p>In Qt 4, the whole source code is in the same git repository. The traditional widgets derived from QWidget are part of the QtGui module and represent a central piece for the GUI application development.</p>
+
+<p>In Qt 5, things changed. Qt code were splitted in many repositories which group Qt libraries depending on their functionalities.
+Examples of repositories are qtbase, qtdeclarative, qtjsbackend, qtxmlpatterns, qtsvg, qttools, etc.
+As you may know, QtQuick 2 became a first class citizen in Qt 5, which means qtdeclarative is one of the main repositories, house of QtQuick and QtQml classes.</p>
+
+<p>But, there are classes that provide the base for QtQuick 2 work properly - they are part of the qtbase repo. There you find QtCore,
+QtGui, QtNetwork, QtOpenGL, QtPlatformSupport, QtXml, QtWidgets, etc.</p>
+
+<p>Wait: What's the difference between QtGui and QtWidgets?</p>
+
+<p>As part of the changes of Qt 5, QtGui is now focused in the basic infrastructure for GUI work on different platforms. For example, it is the place for the platform abstraction layer, window management, image handling, etc.</p>
+
+<p>QtWidgets, as you can conclude based on its name, contains the children of QWidget: QPushButton, QSpinBox, QMainWindow, etc. Also, there are non-widgets classes in QtWidgets, some of them because they are internally too coupled to QWidget classes.</p>
+
+<p><strong>Origins</strong></p>
+
+<p>In this <a href="http://lists.qt-project.org/pipermail/development/2011-December/000932.html">thread</a> it was mentioned the case of QUndoStack, QUndoCommand that are in QtWidgets but can be useful in other contexts where developers do not want to link against QtWidgets just because of this kind of helper classes.
+Later, in the <a href="http://codereview.qt-project.org/#change,15857">change 15857</a> (with the help of ogoffart), we discussed about moving QUndo* out of QtWidgets. First, we moved these classes to QtGui what as not considered correct given the new motivation of this lib. Then, another idea was to move the classes to a new lib, inside qtbase. It was not considered ideal and the decision was to create a separated repo for these classes, leaving QtWidgets untouched (since the Qt community do not want to introduce new bugs in this lib).</p>
+
+<p><strong>Current status</strong></p>
+
+<p>We set a <a href="http://qt-project.org/wiki/Qt-5-Ui-Helpers">wiki page</a> where it is possible to check the classes made available out of QtWidgets. Also, there are instructions about where to download the source code, build, test and contact us.</p>
+
+<p>Besides moving classes out of QtWidgets, some prototypes of convenience APIs were created for QtQuick 2 developers and we are very interested in receiving feedback about them. It's worth mentioning the QML API for UndoStack and the CompletionModel which is based on the internals of QCompleter and was made available in a QML friendly way.</p>
+
+<p>The following example shows a possible use case for the CompletionModel. Improving the models supported by <em>sourceModel</em> is part of the ToDo list. The ListView is going to show the updated list that currently satisfies what is written in the TextInput.</p>
+
+<p>```
+TextInput {</p>
+
+<pre><code>id: input
+</code></pre>
+
+<p>}</p>
+
+<p>CompletionModel {</p>
+
+<pre><code>id: completionModel
+sourceModel: ["Ascension Island", "Andorra", "Afghanistan"]
+completionPrefix: input.text
+caseSensitivity: Qt.CaseInsensitive
+</code></pre>
+
+<p>}</p>
+
+<p>ListView {</p>
+
+<pre><code>model: completionModel
+delegate: Text { text: modelData }
+</code></pre>
+
+<p>}
+```</p>
+
+<p>The two examples bellow show the UndoStack and two items that represent commands. The idea of UndoPropertyCommand is to enable track the changes of some properties. In the example, we are going to track x and y when myRect is moved.</p>
+
+<p>```
+UndoStack {</p>
+
+<pre><code>id: stack
+undoLimit: 5
+</code></pre>
+
+<p>}</p>
+
+<p>UndoPropertyCommand {</p>
+
+<pre><code>id: moveCommand
+properties: ["x", "y"]
+</code></pre>
+
+<p>}</p>
+
+<p>Rectangle {</p>
+
+<pre><code>id: myRect
+
+(...)
+
+MouseArea {
+    (...)
+    drag.target: parent
+    onPressed: stack.push(moveCommand, myRect);
+}
+</code></pre>
+
+<p>}
+```</p>
+
+<p>UndoCommand is another element used to represent commands. The difference here is that it allows the customization of the actions onUndo and onRedo the command.</p>
+
+<p>```
+UndoCommand {</p>
+
+<pre><code>id: aCommand
+
+onUndo: doAThing(target);
+onRedo: undoAThing(target);
+</code></pre>
+
+<p>}</p>
+
+<p>Button {</p>
+
+<pre><code>onClicked: stack.push(aCommand, target);
+</code></pre>
+
+<p>}
+```</p>
+
+<p><strong>Future</strong></p>
+
+<p>Maybe one day this playground project gets promoted and become a Qt Add-on, but there is no expectation it will happen before 5.0. In the meanwhile, there is a ToDo list with some topics we consider important to handle, like better examples, more tests, docs, etc.</p>
+
+<p>We are looking forward receiving more opinions about this work and, as always, contributors are welcome!</p>
+]]></content>
+  </entry>
+  
+</feed>

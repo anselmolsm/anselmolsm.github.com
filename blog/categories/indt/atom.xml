@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: INdT | anselmolsm.org]]></title>
+  <link href="http://anselmolsm.org/blog/categories/indt/atom.xml" rel="self"/>
+  <link href="http://anselmolsm.org/"/>
+  <updated>2012-12-29T16:57:22-02:00</updated>
+  <id>http://anselmolsm.org/</id>
+  <author>
+    <name><![CDATA[Anselmo L. S. Melo]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[A few words about 2012]]></title>
+    <link href="http://anselmolsm.org/blog/a-few-words-about-2012/"/>
+    <updated>2012-12-29T11:31:00-02:00</updated>
+    <id>http://anselmolsm.org/blog/a-few-words-about-2012</id>
+    <content type="html"><![CDATA[<p><div class="imagecc" style="width:620px"><a href="/blog/images/2012/12/montevideo.jpg" title="Sunset in Montevideo, Uruguay. May 2012"><img src="/blog/images/2012/12/montevideo.jpg" width="600" height="451" alt="Sunset in Montevideo, Uruguay. May 2012" border=0></a><br>Sunset in Montevideo, Uruguay. May 2012</div></p>
+
+<p>2012 is almost over, but there is time for one more post, just the third this year.</p>
+
+<p>After the Qt Contributors Summit 2012, our team at <a href="http://www.indt.org/?lang=en">INdT</a> received a new task: continue the development of 'The Incredible Circus'. I had worked a little on <em>Circus</em> before, members of the current team worked on the level editor, so maintaining and creating new features for the Qt (Symbian, N9) version was fine.</p>
+
+<p>Then we also received a more challenging task: extend and maintain the WP7 version, only after making this version behavior like the Qt version - and the level editor, as a consequence. A bunch of new stuff to learn and, in some cases, get along: C#, XNA, WP7 and <strong>Windows</strong> itself :-P</p>
+
+<p>Part of the result of this work was released in version 1.2, an update for the game already published on <a href="http://store.ovi.com/content/214283">Nokia Store</a> and <a href="http://www.windowsphone.com/en-us/store/app/incredible-circus/ae7684da-8cf8-4173-8c69-00e39aaa06c6">WP Marketplace</a>. This version added a new set of levels and some bugfixes; there are more things to come, we are looking forward the new releases.</p>
+
+<p>In parallel, we also worked in a consultancy about a project using Qt, at a client's office in São Paulo. It was interesting to have contact with other developers working in a different way and inside a different organization.</p>
+
+<p>Then the end of the year was time to study HTML5, Javascript. I must admit I underestimated HTML5 too much, but I still not sharing the faith about HTML5 solving all the the things, however for some use cases it's becoming a good alternative.</p>
+
+<p>And a remarkable event in the end 2012 was the <a href="http://blog.qt.digia.com/blog/2012/12/19/qt-5-0/">release of Qt 5.0</a>! Congratulations to <a href="http://qt-project.org/qt-5.0-contributors">all who contributed with code</a> and also those who helped in many other ways!</p>
+
+<p>Let's see what 2013 brings. Happy new year =)</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Qt 5 UiHelpers]]></title>
+    <link href="http://anselmolsm.org/blog/qt-5-uihelpers/"/>
+    <updated>2012-04-13T00:00:00-03:00</updated>
+    <id>http://anselmolsm.org/blog/qt-5-uihelpers</id>
+    <content type="html"><![CDATA[<p>In <a href="http://anselmolsm.org/blog/working-in-the-open-again/">my previous post</a> I mentioned one of the experiments <a href="http://www.indt.org/?lang=en">we</a> are currently working on.
+Now it is time to introduce the Qt 5 playground project called UiHelpers - Fortunately, this name will change ;)
+Those who follow the <a href="http://lists.qt-project.org/pipermail/development">Qt development mailing list</a> already read about it, the idea about this post is to reach more people from the community in general.</p>
+
+<p><strong>Context</strong></p>
+
+<p>If you are already familiar with the structure of Qt 5 code, feel free to jump to the next section.</p>
+
+<p>In Qt 4, the whole source code is in the same git repository. The traditional widgets derived from QWidget are part of the QtGui module and represent a central piece for the GUI application development.</p>
+
+<p>In Qt 5, things changed. Qt code were splitted in many repositories which group Qt libraries depending on their functionalities.
+Examples of repositories are qtbase, qtdeclarative, qtjsbackend, qtxmlpatterns, qtsvg, qttools, etc.
+As you may know, QtQuick 2 became a first class citizen in Qt 5, which means qtdeclarative is one of the main repositories, house of QtQuick and QtQml classes.</p>
+
+<p>But, there are classes that provide the base for QtQuick 2 work properly - they are part of the qtbase repo. There you find QtCore,
+QtGui, QtNetwork, QtOpenGL, QtPlatformSupport, QtXml, QtWidgets, etc.</p>
+
+<p>Wait: What's the difference between QtGui and QtWidgets?</p>
+
+<p>As part of the changes of Qt 5, QtGui is now focused in the basic infrastructure for GUI work on different platforms. For example, it is the place for the platform abstraction layer, window management, image handling, etc.</p>
+
+<p>QtWidgets, as you can conclude based on its name, contains the children of QWidget: QPushButton, QSpinBox, QMainWindow, etc. Also, there are non-widgets classes in QtWidgets, some of them because they are internally too coupled to QWidget classes.</p>
+
+<p><strong>Origins</strong></p>
+
+<p>In this <a href="http://lists.qt-project.org/pipermail/development/2011-December/000932.html">thread</a> it was mentioned the case of QUndoStack, QUndoCommand that are in QtWidgets but can be useful in other contexts where developers do not want to link against QtWidgets just because of this kind of helper classes.
+Later, in the <a href="http://codereview.qt-project.org/#change,15857">change 15857</a> (with the help of ogoffart), we discussed about moving QUndo* out of QtWidgets. First, we moved these classes to QtGui what as not considered correct given the new motivation of this lib. Then, another idea was to move the classes to a new lib, inside qtbase. It was not considered ideal and the decision was to create a separated repo for these classes, leaving QtWidgets untouched (since the Qt community do not want to introduce new bugs in this lib).</p>
+
+<p><strong>Current status</strong></p>
+
+<p>We set a <a href="http://qt-project.org/wiki/Qt-5-Ui-Helpers">wiki page</a> where it is possible to check the classes made available out of QtWidgets. Also, there are instructions about where to download the source code, build, test and contact us.</p>
+
+<p>Besides moving classes out of QtWidgets, some prototypes of convenience APIs were created for QtQuick 2 developers and we are very interested in receiving feedback about them. It's worth mentioning the QML API for UndoStack and the CompletionModel which is based on the internals of QCompleter and was made available in a QML friendly way.</p>
+
+<p>The following example shows a possible use case for the CompletionModel. Improving the models supported by <em>sourceModel</em> is part of the ToDo list. The ListView is going to show the updated list that currently satisfies what is written in the TextInput.</p>
+
+<p>```
+TextInput {</p>
+
+<pre><code>id: input
+</code></pre>
+
+<p>}</p>
+
+<p>CompletionModel {</p>
+
+<pre><code>id: completionModel
+sourceModel: ["Ascension Island", "Andorra", "Afghanistan"]
+completionPrefix: input.text
+caseSensitivity: Qt.CaseInsensitive
+</code></pre>
+
+<p>}</p>
+
+<p>ListView {</p>
+
+<pre><code>model: completionModel
+delegate: Text { text: modelData }
+</code></pre>
+
+<p>}
+```</p>
+
+<p>The two examples bellow show the UndoStack and two items that represent commands. The idea of UndoPropertyCommand is to enable track the changes of some properties. In the example, we are going to track x and y when myRect is moved.</p>
+
+<p>```
+UndoStack {</p>
+
+<pre><code>id: stack
+undoLimit: 5
+</code></pre>
+
+<p>}</p>
+
+<p>UndoPropertyCommand {</p>
+
+<pre><code>id: moveCommand
+properties: ["x", "y"]
+</code></pre>
+
+<p>}</p>
+
+<p>Rectangle {</p>
+
+<pre><code>id: myRect
+
+(...)
+
+MouseArea {
+    (...)
+    drag.target: parent
+    onPressed: stack.push(moveCommand, myRect);
+}
+</code></pre>
+
+<p>}
+```</p>
+
+<p>UndoCommand is another element used to represent commands. The difference here is that it allows the customization of the actions onUndo and onRedo the command.</p>
+
+<p>```
+UndoCommand {</p>
+
+<pre><code>id: aCommand
+
+onUndo: doAThing(target);
+onRedo: undoAThing(target);
+</code></pre>
+
+<p>}</p>
+
+<p>Button {</p>
+
+<pre><code>onClicked: stack.push(aCommand, target);
+</code></pre>
+
+<p>}
+```</p>
+
+<p><strong>Future</strong></p>
+
+<p>Maybe one day this playground project gets promoted and become a Qt Add-on, but there is no expectation it will happen before 5.0. In the meanwhile, there is a ToDo list with some topics we consider important to handle, like better examples, more tests, docs, etc.</p>
+
+<p>We are looking forward receiving more opinions about this work and, as always, contributors are welcome!</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Working in the open again]]></title>
+    <link href="http://anselmolsm.org/blog/working-in-the-open-again/"/>
+    <updated>2012-03-27T00:00:00-03:00</updated>
+    <id>http://anselmolsm.org/blog/working-in-the-open-again</id>
+    <content type="html"><![CDATA[<p>Long time since my last post (it's sad to realize how often I start posts writing this).
+Since last year's <a href="http://qt-project.org/groups/qt-contributors-summit-2011">Qt Contributors' Summit</a>, our team at <a href="http://www.indt.org/?lang=en">INdT</a> worked on a closed source project - the main reason of the low activity here. At least, I could write some posts for the <a href="http://blog.qtlabs.org.br/">Qt Labs Blog Brazil</a>, most of them introducing basic concepts about Qt programming and the Qt ecosystem (buzzword++).
+The good part is: This project we were working on was developed using Qt and QML for a desktop application. Besides promoting Qt among Brazilian developers and companies, this project helped us to think about improvements for future releases of QtQuick aiming desktop applications. I am looking forward to see a release of this product soon! (However, when it is going to happen is a client decision).</p>
+
+<p>Then, after the end of this project, I <strong>finally</strong> managed to contribute to Qt5! :-)</p>
+
+<p>Also, in the end of the last year some coworkers started a kind of pet project: It's called Iceberg, a fork of the Icecream Monitor.</p>
+
+<p><strong>"Why a fork?"</strong> Here we use (http://en.opensuse.org/Icecream)[icecream] for distributed compilation, many colleagues used to complain about icemon depending on kdelibs. In fact, the code did not use the additional features compared to the equivalent Qt classes. Then, after <a href="http://hugoparente.blogspot.com.br/">hugopl</a> <a href="http://hugoparente.blogspot.com.br/2011/10/iceberg.html">started the project</a>, we fixed some issues and added new stuff. The code is <a href="https://github.com/hugopl/Iceberg">here</a>.</p>
+
+<p>I am writing another post to introduce one of our current research projects, which is also part of the proposal I sent to <a href="http://akademy.kde.org/">Akademy 2012</a>.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Qt Contributors' Summit]]></title>
+    <link href="http://anselmolsm.org/blog/qt-contributors-summit/"/>
+    <updated>2011-06-17T00:00:00-03:00</updated>
+    <id>http://anselmolsm.org/blog/qt-contributors-summit</id>
+    <content type="html"><![CDATA[<p><div class="imagecc" style="width:216px"><a href="http://developer.qt.nokia.com/groups/qt_contributors_summit/wiki" title="I'm going to the Qt Contributors' Summit"><img src="http://get.qt.nokia.com/marketing/summit_01.png" width="196" height="121" alt="I'm going to the Qt Contributors' Summit" border=0></a><br>I'm going to the Qt Contributors' Summit</div></p>
+
+<p>We are in Berlin, attending the Qt Contributor's Summit. 265 people are discussing very important (and interesting) topics for Qt 5 and the open governance. You can follow what's happening here using the hash code #qtcs on several social networks. And of course, you can check the <a href="http://developer.qt.nokia.com/groups/qt_contributors_summit/wiki">wiki page of the event</a>.</p>
+
+<p>Personally, I am attending sessions related with QML, Qt-Components, <a href="http://developer.qt.nokia.com">DevNet</a> and open governance.</p>
+
+<p>And yesterday was Thursday, also known as the "Yellow Day":</p>
+
+<p><div class="imagecc" style="width:660px"><a href="/blog/images/2011/06/diaamarelo.jpg" title="Ok, Ademar was not wearing yellow t-shirt. Well, imagine him as the goalkeeper of the team ;)"><img src="/blog/images/2011/06/diaamarelo.jpg" width="640" height="480" alt="Ok, Ademar was not wearing yellow t-shirt. Well, imagine him as the goalkeeper of the team ;)" border=0></a><br>Ok, Ademar was not wearing yellow t-shirt. Well, imagine him as the goalkeeper of the team ;)</div></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Meego Conf 2011 - San Francisco]]></title>
+    <link href="http://anselmolsm.org/blog/meego-conf-2011-san-francisco/"/>
+    <updated>2011-05-23T00:00:00-03:00</updated>
+    <id>http://anselmolsm.org/blog/meego-conf-2011-san-francisco</id>
+    <content type="html"><![CDATA[<p>I am in San Francisco <a href="(http://www.anselmolsm.org/blog/if-youre-going-to-san-francisco/">again</a>! =), this time for the MeeGo Conference 2011.</p>
+
+<p>The event is about to begin with the keynote "The Future of MeeGo Starts Now" presented by the president of Linux Foundation, Jim Zemlin.</p>
+
+<p>This time, I'm going to present a talk too! The talk is today and the topic is "Writing applications for multiple MeeGo devices".</p>
+
+<p>There are other talks by openBossa/INdT guys, <a href="http://sf2011.meego.com/program/session-schedule">check the schedule</a>!</p>
+]]></content>
+  </entry>
+  
+</feed>

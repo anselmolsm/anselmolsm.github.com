@@ -1,0 +1,743 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>anselmolsm.org</title>
+  <meta name="author" content="Anselmo L. S. Melo">
+
+  
+  <meta name="description" content="Hey! Another post regarding our work with Qt Kinetic here at openbossa - INdT. A quick introduction:  in the end of February I posted video showing &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://anselmolsm.org/blog/page/3/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/blog/atom.xml" rel="alternate" title="anselmolsm.org" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Lusitana:400,700' rel='stylesheet' type='text/css'>
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-6093467-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">anselmolsm.org</a></h1>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/blog/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:anselmolsm.org" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Home</a></li>
+  <li><a href="/blog">Blog</a></li>
+  <li><a href="/links">My Links</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/qt-state-machine-and-animated-layouts-integration/">Qt State Machine and Animated Layouts Integration</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-04-03T00:00:00-03:00" pubdate data-updated="true">April 03, 2009</time>
+        
+         | <a href="/blog/qt-state-machine-and-animated-layouts-integration/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Hey! Another post regarding our work with <a href="" title="http://en.wikipedia.org/wiki/Qt_(toolkit)">Qt</a> <a href="http://labs.trolltech.com/page/Projects/Graphics/Kinetic">Kinetic</a> here at <a href="http://www.openbossa.org/">openbossa</a> - <a href="http://www.indt.org.br/">INdT</a>.</p>
+
+<p>A quick introduction:  in the end of February I <a href="http://www.anselmolsm.org/blog/layout-animations-with-qt-kinetic/">posted</a> <a href="http://www.youtube.com/watch?v=M3HbmrNvQl4">video</a> showing the first example of layouts animations.  At that time, the API wasn&#8217;t complete and there was no integration with states and some stuff were hardcoded.</p>
+
+<p>In March some <a href="http://www.qtsoftware.com/">Trolls</a> visited Recife to speak at <a href="http://www.bossaconference.org/">Bossa Conference 2009</a> (you can watch the presentations at <a href="http://openbossa.blip.tv">http://openbossa.blip.tv</a>. It was nice because we could talk about the work we&#8217;re doing together using whiteboards, what makes a huge difference =) .</p>
+
+<p>After Bossa, we continued the development of the Animated Layouts API, making layout proxies transparent and integrating with the <a href="http://doc.trolltech.com/solutions/4/qtstatemachine/statemachine-api.html">Qt State Machine Framework</a>. It now allows the customization of animations per widget, bringing more flexibility in the creation of rich user interfaces using Qt.</p>
+
+<p>The following video shows the <a href="http://www.youtube.com/watch?v=M3HbmrNvQl4">old example</a> with these improvements:</p>
+
+<iframe width="560" height="420" src="http://www.youtube.com/embed/wZo1wskBs0A?color=white&theme=light"></iframe>
+
+
+<p>After that, we created some examples in order to show use cases and also to test what had been developed, but it is the next post&#8217;s subject! (remember what I said in the beginning? ;) )</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/canola2-menu-layout-with-qt-kinetic/">Canola2 menu layout with Qt Kinetic</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-04-03T00:00:00-03:00" pubdate data-updated="true">April 03, 2009</time>
+        
+         | <a href="/blog/canola2-menu-layout-with-qt-kinetic/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Welcome back dear readers. This is my second post of the day talking about what is happening in the development of animated layouts in <a href="http://labs.trolltech.com/page/Projects/Graphics/Kinetic">Qt Kinetic</a>.</p>
+
+<p>As I said in my <a href="http://www.anselmolsm.org/blog/qt-state-machine-and-animated-layouts-integration/">previous post</a>, we discussed about new good examples that could show use cases of this new API. In the end, only one example was created, but it&#8217;s really cool =) .</p>
+
+<p>Maybe some of you will recognize this interface, it looks like <a href="http://openbossa.indt.org.br/canola/index.html">canola2</a>&#8217;s main menu, another software developed by <a href="http://www.indt.org.br/">INdT</a> for Nokia <a href="http://en.wikipedia.org/wiki/Internet_Tablet">internet tablets</a> (e.g. <a href="http://en.wikipedia.org/wiki/N810">N810</a>) - and as you can read <a href="http://etrunko.blogspot.com/2009/03/canola-is-free.html">here</a>, an <a href="https://bugs.maemo.org/show_bug.cgi?id=3881">old bug was fixed</a> and canola2 is now a <a href="http://en.wikipedia.org/wiki/Free_software">free software</a>, released under <a href="http://en.wikipedia.org/wiki/Gplv3#Version_3">GPLv3</a>. In <a href="http://wouwlabs.com/blogs/jeez/?p=99">this post</a> you can read more about the development of that interface.</p>
+
+<p>So, we wrote an example based on that concept. During the development we had nice discussions regarding the algorithm for the engine that controls the icons distribution on the screen.</p>
+
+<p>Check it out:</p>
+
+<iframe width="560" height="420" src="http://www.youtube.com/embed/eJcTBJaPRZg?color=white&theme=light"></iframe>
+
+
+<p>The source code is not available yet, but it will be published soon in a git repository near you, then you will be able to check how animated layouts were used and also see that algorithm I&#8217;ve just mentined. So, stay tuned!</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/operacao-boa-viagem-parte-2/">Operação Boa Viagem, parte 2</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-03-05T00:00:00-03:00" pubdate data-updated="true">March 05, 2009</time>
+        
+         | <a href="/blog/operacao-boa-viagem-parte-2/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>É melhor continuar a escrever sobre a viagem pois já estamos em Março!</p>
+
+<p>Depois da (introdução)[http://www.anselmolsm.org/blog/operacao-boa-viagem-parte-1/], vamos ao primeiro dia de viagem: 1 de Janeiro de 2009: Pindamonhangaba, SP - Macaé, RJ (~500 km):</p>
+
+<p>(fotos: clique para ampliar)</p>
+
+<div class="imagecc" style="width:570px"><a href="images/2009/03/pinda-macae.png" title="pinda-macae"><img src="images/2009/03/pinda-macae.png" width="550" height="146" alt="pinda-macae" border=0></a><br>pinda-macae</div>
+
+
+<p>Saindo de casa, despedida de José Billy:</p>
+
+<div class="imagecc" style="width:500px"><a href="images/2009/03/billy.jpg" title="José Billy"><img src="images/2009/03/billy.jpg" width="480" height="316" alt="José Billy" border=0></a><br>José Billy</div>
+
+
+<p>Saímos da casa de minhas tias por volta das 13h. Como já foi dito na <a href="http://www.anselmolsm.org/blog/operacao-boa-viagem-parte-1">parte 1</a>, a viagem foi antecipada em meio período para termos uma certa folga para eventuais imprevistos, dado que o voo (olha nova acentuação aí) do meu pai saíria do Recife na madrugada de segunda 5 de Janeiro.</p>
+
+<div class="imagecc" style="width:500px"><a href="images/2009/03/44444.jpg" title="44444 km"><img src="images/2009/03/44444.jpg" width="480" height="360" alt="44444 km" border=0></a><br>44444 km</div>
+
+
+<p>Neste primeiro dia, apenas eu dirigi. Aprox. 290 km de rodovia Presidente Dutra, Avenida Brasil (faltaram fotos, mas ela nem é assim, digamos, bonita&#8230;), Ponte Rio - Niterói, primeiro trecho de BR-101 mais a Via Lagos - estrada que corta a região dos lagos (a fotógrafa dormiu nesse trecho).</p>
+
+<div class="imagecc" style="width:500px"><a href="images/2009/03/dutra.jpg" title="Rod. Pres. Dutra, próximo da divisa SP/RJ"><img src="images/2009/03/dutra.jpg" width="480" height="360" alt="Rod. Pres. Dutra, próximo da divisa SP/RJ" border=0></a><br>Rod. Pres. Dutra, próximo da divisa SP/RJ</div>
+
+
+
+
+<div class="imagecc" style="width:500px"><a href="images/2009/03/araras1.jpg" title="Início da descida da serra das araras, RJ"><img src="images/2009/03/araras1.jpg" width="480" height="360" alt="Início da descida da serra das araras, RJ" border=0></a><br>Início da descida da serra das araras, RJ</div>
+
+
+<div class="imagecc" style="width:500px"><a href="images/2009/03/araras2.jpg" title="a vista na descida é bem legal (pra quem está de passageiro =D )"><img src="images/2009/03/araras2.jpg" width="480" height="360" alt="a vista na descida é bem legal (pra quem está de passageiro =D )" border=0></a><br>a vista na descida é bem legal (pra quem está de passageiro =D )</div>
+
+
+<div class="imagecc" style="width:500px"><a href="images/2009/03/araras2.jpg" title="Curvas e mais curvas"><img src="images/2009/03/araras3.jpg" width="480" height="360" alt="Curvas e mais curvas" border=0></a><br>Curvas e mais curvas</div>
+
+
+<p>Já no Rio de Janeiro, pretendíamos fazer um caminho para chegar na Ponte Rio-Niterói, fizemos um outro que acabou dando certo, culpa de uma placa mal posicionada que quase complicou o que não era pra ser tão difícil.</p>
+
+<div class="imagecc" style="width:500px"><a href="images/2009/03/ponte1.jpg" title="Ponte Rio-Niterói"><img src="images/2009/03/ponte1.jpg" width="480" height="360" alt="Ponte Rio-Niterói" border=0></a><br>Ponte Rio-Niterói</div>
+
+
+<div class="imagecc" style="width:500px"><a href="images/2009/03/ponte2.jpg" title="próximo ao \"viaduto\" da ponte =)"><img src="images/2009/03/ponte2.jpg" width="480" height="360" alt="próximo ao \"viaduto\" da ponte =)" border=0></a><br>próximo ao &#34;viaduto&#34; da ponte =)</div>
+
+
+<div class="imagecc" style="width:500px"><a href="images/2009/03/ponte3.jpg" title="de olhos fechados!"><img src="images/2009/03/ponte3.jpg" width="480" height="213" alt="de olhos fechados!" border=0></a><br>de olhos fechados!</div>
+
+
+<div class="imagecc" style="width:500px"><a href="images/2009/03/ponte4.jpg" title="Pão de Açúcar e baía de Guanabara"><img src="images/2009/03/ponte4.jpg" width="480" height="314" alt="Pão de Açúcar e baía de Guanabara" border=0></a><br>Pão de Açúcar e baía de Guanabara</div>
+
+
+<div class="imagecc" style="width:500px"><a href="images/2009/03/ponte5.jpg" title="Olha o tamanho da criança: Isso é do projeto Mexilhão, da Petrobrás."><img src="images/2009/03/ponte5.jpg" width="480" height="360" alt="Olha o tamanho da criança: Isso é do projeto Mexilhão, da Petrobrás." border=0></a><br>Olha o tamanho da criança: Isso é do projeto Mexilhão, da Petrobrás.</div>
+
+
+<p>Terminada a Ponte, um alô pra BR-101. Nosso primeiro contato com as obras da concessionária Autopista Fluminense que está instalando bases de apoio, tampando buracos, duplicando a pista, fazendo pedágios.</p>
+
+<p>Saindo da BR-101, pegamos a Via Lagos. Estrada boa, mas com muitos radares com velocidades baixas: 40km/h, 50km/h (Alguns em trechos não urbanos). Nos trechos em que passa pelas cidades da região, o trânsito estava pesado por causa dos turistas ainda no feriado do ano novo. Bateu um certo arrependimento de não ter continuado na 101, mesmo com informações de que ela não estaria tão boa no trecho Rio Bonito - Campos.</p>
+
+<div class="imagecc" style="width:500px"><a href="images/2009/03/darwin.jpg" title="Darwin esteve aqui! Barra de São João, RJ (se não me engano...)"><img src="images/2009/03/darwin.jpg" width="480" height="360" alt="Darwin esteve aqui! Barra de São João, RJ (se não me engano...)" border=0></a><br>Darwin esteve aqui! Barra de São João, RJ (se não me engano&#8230;)</div>
+
+
+<div class="imagecc" style="width:500px"><a href="images/2009/03/riodasostras.jpg" title="Rio das Ostras"><img src="images/2009/03/riodasostras.jpg" width="480" height="360" alt="Rio das Ostras" border=0></a><br>Rio das Ostras</div>
+
+
+<p>Nesta primeira noite, ficamos na pousada Rocha, em Macaé-RJ. Uma pousada simpática, de frente para o mar, indicação de um colega de trabalho de meu pai. Chegamos por volta das 20h00 devido ao atraso do trânsito nas cidades da região dos lagos.</p>
+
+<div class="imagecc" style="width:500px"><a href="images/2009/03/macae1.jpg" title="Pousada Rocha, em Macaé-RJ"><img src="images/2009/03/macae1.jpg" width="480" height="360" alt="Pousada Rocha, em Macaé-RJ" border=0></a><br>Pousada Rocha, em Macaé-RJ</div>
+
+
+<p>O jantar do dia aconteceu no restaurante <a href="http://www.qype.com.br/place/514949-Porto-Cavaleiros-Macae">Porto Cavaleiros</a>, onde comemos &#8220;Picanha para 2 pessoas&#8221; (R$ 30,00), que acabou servindo 3 pessoas muito bem - com o detalhe que a carne era servida aos poucos, conforme era preparada, evitando assim aquela carne-fria-seca-de-fim-de-festa.</p>
+
+<p>Post curto pois o primeiro dia de viagem foi curto. O mais complicado sobre esses posts da viagem nem é escrever e sim selecionar as fotos: são muitas! Em breve devo fazer upload em algum lugar dessa maravilha de Internet.</p>
+
+<p>===</p>
+
+<p>500 km percorridos, faltavam 2168 km &#8230;</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/layout-animations-with-qt-kinetic/">Layout Animations with Qt Kinetic</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-02-26T00:00:00-03:00" pubdate data-updated="true">February 26, 2009</time>
+        
+         | <a href="/blog/layout-animations-with-qt-kinetic/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>My first post about stuff I&#8217;m working on ;)</p>
+
+<p><a href="http://www.openbossa.org/">We</a> are working together with <a href="http://www.qtsoftware.com/">Qt Software</a> guys in the <a href="http://labs.trolltech.com/page/Projects/Graphics/Kinetic">Qt Kinetic</a> project, specifically with animated layout transitions.</p>
+
+<p>Last week we made our first demo of what is being developed. It uses the basics we&#8217;ve just finished, now we&#8217;re working to define the final API.  The following video shows this demo:</p>
+
+<iframe width="560" height="420" src="http://www.youtube.com/embed/M3HbmrNvQl4?color=white&theme=light"></iframe>
+
+
+<p>Interested? Read this <a href="http://blog.morpheuz.cc/26/02/2009/animated-layouts-with-qt-kinetic/">overview</a> and <a href="http://blog.eduardofleury.com/archives/2009/02/51/">more details about internals</a> written by co-workers, then join us at #qt-kinetic @ Freenode =)</p>
+
+<p>PS: <portuguese>Há também uma visão geral em português a respeito <a href="http://wouwlabs.com/blogs/jeez/?p=62">neste post</a>. </portuguese></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/operacao-boa-viagem-parte-1/">Operação Boa Viagem, parte 1</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-01-27T00:00:00-02:00" pubdate data-updated="true">January 27, 2009</time>
+        
+         | <a href="/blog/operacao-boa-viagem-parte-1/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Demorou mas enfim vamos ao primeiro post sobre da viagem de carro entre <a href="http://pt.wikipedia.org/wiki/Pindamonhangaba">Pindamonhangaba</a> e <a href="http://pt.wikipedia.org/wiki/Recife">Recife</a>. Para começar, uma rápida introdução.</p>
+
+<p>No início deste ano me mudei para Recife. O costume entre os que se mudam de longe para cá para trabalhar no <a href="http://www.indt.org">INdT</a> - Instituto Nokia de Tecnologia - é fazer a viagem de avião. Mas&#8230; tendo um pai que adora dirigir, uma namorada com alguns parafusos a menos e eu mesmo tendo de vez em quando algumas idéias fora do comum, resolvemos fazer a viagem+mudança (afinal minhas coisas teriam que vir junto) de carro.</p>
+
+<p>O automóvel utilizado nesta jornada foi o grande Renault Clio 1.0 16V que me acompanha desde agosto de 2007 (antes da viagem já contava ~44.444 km rodados =D ). Por uma infeliz combinação de acontecimentos, o ar condicionado que seria instalado antes da viagem não vingou&#8230;</p>
+
+<p>Para aqueles que não sabem onde fica Pindamonhangaba, <a href="http://pt.wikipedia.org/wiki/SP">SP</a>:</p>
+
+<div class="imagecc" style="width:568px"><a href="images/2009/01/ondeficapinda.png" title="Onde fica Pindamonhangaba"><img src="images/2009/01/ondeficapinda.png" width="548" height="246" alt="Onde fica Pindamonhangaba" border=0></a><br>Onde fica Pindamonhangaba</div>
+
+
+<p>Bem, quanto o itinerário. Foram consultados alguns guias rodoviários, mapas, pessoas&#8230; Existiam basicamente 2 opções:</p>
+
+<div class="imagecl" style="width:269px"><a href="images/2009/01/br116.png" title="BR116"><img src="images/2009/01/br116.png" width="249" height="260" alt="BR116" border=0></a><br>BR116</div>
+
+
+
+
+<div class="imagecr" style="width:267px"><a href="images/2009/01/br101.png" title="BR101"><img src="images/2009/01/br101.png" width="247" height="260" alt="BR101" border=0></a><br>BR101</div>
+
+
+<p>Considerando apenas a distância, obviamente deveríamos escolher o caminho que passa pelo interior de Minas Gerais e Bahia. Mas&#8230; levando em consideração que estradas federais em Minas Gerais costumam ser ruins, as distâncias entre cidades perto da estrada, entre outros, optamos pelo caminho <a href="http://pt.wikipedia.org/wiki/Rodovia_Presidente_Dutra">Dutra</a> + <a href="http://pt.wikipedia.org/wiki/BR-101">BR-101</a>.</p>
+
+<p>Assim, foi feita a programação. A princípio a saída estava marcada para Sexta-feira, 2 de Janeiro, logo pela manhã. Porém achamos melhor antecipar um pouco para ter uma folga para eventuais atrasos.</p>
+
+<p>A saída ficou para o dia primeiro, 13h. Neste primeiro dia o plano era chegar até <a href="http://pt.wikipedia.org/wiki/Maca%C3%A9">Macaé</a>, <a href="http://pt.wikipedia.org/wiki/Rio_de_Janeiro">RJ</a> , percorrendo 490 km (indo pela região dos lagos). Macaé foi escolhida como a parade nesse primeiro dia pois um colega de trabalho do meu pai indicou uma pousada lá.</p>
+
+<p>No segundo dia (Sexta-feira, dia 2), cerca de 1080 km até <a href="http://pt.wikipedia.org/wiki/Itabuna">Itabuna</a>, <a href="http://pt.wikipedia.org/wiki/Bahia">BA</a> (local da segunda reserva em hotel); restariam 1098 km.</p>
+
+<p>Meu pai previu chegada em Recife ainda na noite do Sábado dia 3. Eu estimei domingo dia 4 por volta das 10h. Os detalhes de cada dia da chamada &#8220;Operação Boa Viagem&#8221;, com fotos do percurso, serão tratados em posts futuros.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/ironia/">Ironia</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-12-19T00:00:00-02:00" pubdate data-updated="true">December 19, 2008</time>
+        
+         | <a href="/blog/ironia/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Tive 2 semanas de relativo transtorno para devolver o apartamento que alugava em Campinas pois a imobiliária aos poucos foi reduzindo o tempo que eu tinha para deixar tudo em ordem (demoraram pra avisar das férias coletivas a partir do dia 20, depois dia 12 me avisaram que não abririam dia 19, etc&#8230;)</p>
+
+<p>No fim, quando fui entregar as chaves, na sala da corretora vi que havia um lindo quadro com os seguintes dizeres:</p>
+
+<blockquote>Corretor de imóveis: **365 dias por ano** movimentando a economia.</blockquote>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/interferencia-show/">Interferência Show!</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-12-12T00:00:00-02:00" pubdate data-updated="true">December 12, 2008</time>
+        
+         | <a href="/blog/interferencia-show/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Percorrendo a <a href="http://www.dersa.sp.gov.br/rodovias/dompedro.asp">rodovia D. Pedro I</a> semana passada (5/12), entre o Pedágio de Itatiba (Km 110) e Atibaia (~ Km 80) consegui sintonizar a  <a href="http://www.kissfm.com.br/">Kiss FM</a> de São Paulo nos 102.1 MHz. Até aí, banalidades.</p>
+
+<p>O interessante foi o efeito quase que criativo criado pela interferência de outra rádio.</p>
+
+<p>Primeiro promoveu um <a href="http://en.wikipedia.org/wiki/Walk_this_way">Aerosmith - Walk This Way</a> + <a href="http://en.wikipedia.org/wiki/Wind_of_Change_(song">Scorpions - Wind of Change</a>) com curiosa alternância de refrões. Depois outra combinação notável foi <a href="http://en.wikipedia.org/wiki/Man_in_the_Box">Alice in Chains - Man in the Box</a> + <a href="http://en.wikipedia.org/wiki/Strutter">Kiss - Strutter</a>.</p>
+
+<p>Hoje tentarei novamente verificar o efeito criado pelo DJ Interferência, quem tiver a oportunidade, tente! =)</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/canal-36/">Canal 36</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-12-10T00:00:00-02:00" pubdate data-updated="true">December 10, 2008</time>
+        
+         | <a href="/blog/canal-36/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Madrugada, mudando de canais na NET&#8230;. eis que no canal 36 o Windão dando aquela rebootada esperta pra ficar beleza pra um novo dia&#8230;.</p>
+
+<p><img class="center" src="/blog/images/2008/12/dsc04030r.jpg" width="600" height="450"></p>
+
+<p><img class="center" src="/blog/images/2008/12/dsc04031r.jpg" width="600" height="450"></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/informacoes-precisas/">Informações &#8220;Precisas&#8221;</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-12-03T00:00:00-02:00" pubdate data-updated="true">December 03, 2008</time>
+        
+         | <a href="/blog/informacoes-precisas/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Pena que a foto ficou um lixo&#8230;</p>
+
+<div class="imagecc" style="width:356px"><a href="/blog/images/2008/12/imag011.jpg" title="2001 - Uma Odisséia no espaço em Blu-ray"><img src="/blog/images/2008/12/imag011.jpg" width="336" height="448" alt="2001 - Uma Odisséia no espaço em Blu-ray" border=0></a><br>2001 - Uma Odisséia no espaço em Blu-ray</div>
+
+
+<p>E seguindo a onda &#8220;quanto mais informação melhor, não importa se estiver errada&#8221;:</p>
+
+<div class="imagecc" style="width:291px"><a href="/blog/images/2008/12/1seg.jpg" title="1 second???"><img src="/blog/images/2008/12/1seg.jpg" width="271" height="303" alt="1 second???" border=0></a><br>1 second???</div>
+
+
+<p>Por que quem fez esse anúncio da loja achou razoável 1se<strong>g</strong> ser abreviação de &#8220;1 second&#8221; ?</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/opera-mini-psp/">Opera Mini - PSP</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-11-25T00:00:00-02:00" pubdate data-updated="true">November 25, 2008</time>
+        
+         | <a href="/blog/opera-mini-psp/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Se você é mais um dos que acham que o browser que vem com o <a href="http://en.wikipedia.org/wiki/PlayStation_Portable">PSP</a> é triste, eis uma alternativa: Utilizar o <a href="http://en.wikipedia.org/wiki/Opera_mini">Opera Mini</a>. Sim, aquele que também dá pra usar em celulares. Para isso é necessário instalar o <a href="http://www.pspkvm.com-a.googlepages.com/">PSPKVM</a> (uma máquina virtual <a href="http://en.wikipedia.org/wiki/Java_Platform,_Micro_Edition">Java ME</a> para PSP) e de dentro dele instalar e executar o Opera mini. Mais detalhes (incluindo links para downloads) em <a href="http://my.opera.com/community/blog/2008/10/22/a-better-browser">http://my.opera.com/community/blog/2008/10/22/a-better-browser</a>.</p>
+
+<p>A utilização do Opera Mini no começo é bem chata pois as posições dos comandos na tela não correspondem com os botões do PSP, mas com um pouco de treino melhora. Por exemplo, para inserir a URL na barra de endereços os comandos necessários são:</p>
+
+<p><strong>select</strong>, para abrir o menu lateral e <strong>select</strong> novamente para selecionar a opção <em>Enter Address</em>. Com a barra de endereços selecionada, use o direcional analógico para exibir as opções <em>Search</em> e <em>Insert symbol&#8230; . </em>A segunda opção exibirá um teclado qwerty que facilitará inserção de caracteres. O direcional analógico navega entre as teclas do teclado virtual. Terminada a edição da URL, aperte <strong>start</strong> e entao selecione <em>OK</em> no menu. Na sequência, use o botão &#8221;<strong>O</strong>&#8221; para acessar o endereço inserido.</p>
+
+<iframe width="560" height="420" src="http://www.youtube.com/embed/uUlw6xWZVkM?color=white&theme=light"></iframe>
+
+
+<p>Enfim, tem lá suas chatices, mas também algumas vantagens.</p>
+
+<p>Alguma outra sugestão de browser para o PSP?</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+      <a class="prev" href="/blog/page/4/">&larr; Older</a>
+    
+    <a href="/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/blog/page/2/">Newer &rarr;</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/a-few-words-about-2012/">A few words about 2012</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/qt-5-uihelpers/">Qt 5 UiHelpers</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/working-in-the-open-again/">Working in the open again</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/qt-contributors-summit/">Qt Contributors&#8217; Summit</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/meego-conf-2011-san-francisco/">Meego Conf 2011 - San Francisco</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Anselmo L. S. Melo -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'anselmolsm';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

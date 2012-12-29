@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: priscila | anselmolsm.org]]></title>
+  <link href="http://anselmolsm.org/blog/categories/priscila/atom.xml" rel="self"/>
+  <link href="http://anselmolsm.org/"/>
+  <updated>2012-12-29T16:57:22-02:00</updated>
+  <id>http://anselmolsm.org/</id>
+  <author>
+    <name><![CDATA[Anselmo L. S. Melo]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[o primeiro ssh a gente nunca esquece]]></title>
+    <link href="http://anselmolsm.org/blog/o-primeiro-ssh-a-gente-nunca-esquece/"/>
+    <updated>2008-09-16T00:00:00-03:00</updated>
+    <id>http://anselmolsm.org/blog/o-primeiro-ssh-a-gente-nunca-esquece</id>
+    <content type="html"><![CDATA[<p><code>
+Sep 16 21:17:35 persephone sshd[5853]: Accepted password for priscila from 189.20.51.83 port61753 ssh2
+Sep 16 21:17:35 persephone sshd[5853]: pam_unix_session(sshd:session): session opened for user priscila
+</code></p>
+]]></content>
+  </entry>
+  
+</feed>

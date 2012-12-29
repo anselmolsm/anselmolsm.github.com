@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: pirate | anselmolsm.org]]></title>
+  <link href="http://anselmolsm.org/blog/categories/pirate/atom.xml" rel="self"/>
+  <link href="http://anselmolsm.org/"/>
+  <updated>2012-12-29T16:57:22-02:00</updated>
+  <id>http://anselmolsm.org/</id>
+  <author>
+    <name><![CDATA[Anselmo L. S. Melo]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Avast, salty sea-dog!]]></title>
+    <link href="http://anselmolsm.org/blog/avast-salty-sea-dog/"/>
+    <updated>2008-09-19T00:00:00-03:00</updated>
+    <id>http://anselmolsm.org/blog/avast-salty-sea-dog</id>
+    <content type="html"><![CDATA[<p>19/09: <a href="http://en.wikipedia.org/wiki/Talk_like_a_pirate_day">Talk like a pirate day!</a></p>
+
+<p><a href="http://www.talklikeapirate.com/">http://www.talklikeapirate.com/</a></p>
+
+<p><iframe width="560" height="420" src="http://www.youtube.com/embed/fqMu6e5Dgtg?color=white&theme=light"></iframe></p>
+
+<p>Arroy!</p>
+]]></content>
+  </entry>
+  
+</feed>

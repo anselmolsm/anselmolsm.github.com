@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: examples | anselmolsm.org]]></title>
+  <link href="http://anselmolsm.org/blog/categories/examples/atom.xml" rel="self"/>
+  <link href="http://anselmolsm.org/"/>
+  <updated>2012-12-29T16:57:22-02:00</updated>
+  <id>http://anselmolsm.org/</id>
+  <author>
+    <name><![CDATA[Anselmo L. S. Melo]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Qt State Machine and Animated Layouts Integration]]></title>
+    <link href="http://anselmolsm.org/blog/qt-state-machine-and-animated-layouts-integration/"/>
+    <updated>2009-04-03T00:00:00-03:00</updated>
+    <id>http://anselmolsm.org/blog/qt-state-machine-and-animated-layouts-integration</id>
+    <content type="html"><![CDATA[<p>Hey! Another post regarding our work with <a href="" title="http://en.wikipedia.org/wiki/Qt_(toolkit)">Qt</a> <a href="http://labs.trolltech.com/page/Projects/Graphics/Kinetic">Kinetic</a> here at <a href="http://www.openbossa.org/">openbossa</a> - <a href="http://www.indt.org.br/">INdT</a>.</p>
+
+<p>A quick introduction:  in the end of February I <a href="http://www.anselmolsm.org/blog/layout-animations-with-qt-kinetic/">posted</a> <a href="http://www.youtube.com/watch?v=M3HbmrNvQl4">video</a> showing the first example of layouts animations.  At that time, the API wasn't complete and there was no integration with states and some stuff were hardcoded.</p>
+
+<p>In March some <a href="http://www.qtsoftware.com/">Trolls</a> visited Recife to speak at <a href="http://www.bossaconference.org/">Bossa Conference 2009</a> (you can watch the presentations at <a href="http://openbossa.blip.tv">http://openbossa.blip.tv</a>. It was nice because we could talk about the work we're doing together using whiteboards, what makes a huge difference =) .</p>
+
+<p>After Bossa, we continued the development of the Animated Layouts API, making layout proxies transparent and integrating with the <a href="http://doc.trolltech.com/solutions/4/qtstatemachine/statemachine-api.html">Qt State Machine Framework</a>. It now allows the customization of animations per widget, bringing more flexibility in the creation of rich user interfaces using Qt.</p>
+
+<p>The following video shows the <a href="http://www.youtube.com/watch?v=M3HbmrNvQl4">old example</a> with these improvements:
+<iframe width="560" height="420" src="http://www.youtube.com/embed/wZo1wskBs0A?color=white&theme=light"></iframe></p>
+
+<p>After that, we created some examples in order to show use cases and also to test what had been developed, but it is the next post's subject! (remember what I said in the beginning? ;) )</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Canola2 menu layout with Qt Kinetic]]></title>
+    <link href="http://anselmolsm.org/blog/canola2-menu-layout-with-qt-kinetic/"/>
+    <updated>2009-04-03T00:00:00-03:00</updated>
+    <id>http://anselmolsm.org/blog/canola2-menu-layout-with-qt-kinetic</id>
+    <content type="html"><![CDATA[<p>Welcome back dear readers. This is my second post of the day talking about what is happening in the development of animated layouts in <a href="http://labs.trolltech.com/page/Projects/Graphics/Kinetic">Qt Kinetic</a>.</p>
+
+<p>As I said in my <a href="http://www.anselmolsm.org/blog/qt-state-machine-and-animated-layouts-integration/">previous post</a>, we discussed about new good examples that could show use cases of this new API. In the end, only one example was created, but it's really cool =) .</p>
+
+<p>Maybe some of you will recognize this interface, it looks like <a href="http://openbossa.indt.org.br/canola/index.html">canola2</a>'s main menu, another software developed by <a href="http://www.indt.org.br/">INdT</a> for Nokia <a href="http://en.wikipedia.org/wiki/Internet_Tablet">internet tablets</a> (e.g. <a href="http://en.wikipedia.org/wiki/N810">N810</a>) - and as you can read <a href="http://etrunko.blogspot.com/2009/03/canola-is-free.html">here</a>, an <a href="https://bugs.maemo.org/show_bug.cgi?id=3881">old bug was fixed</a> and canola2 is now a <a href="http://en.wikipedia.org/wiki/Free_software">free software</a>, released under <a href="http://en.wikipedia.org/wiki/Gplv3#Version_3">GPLv3</a>. In <a href="http://wouwlabs.com/blogs/jeez/?p=99">this post</a> you can read more about the development of that interface.</p>
+
+<p>So, we wrote an example based on that concept. During the development we had nice discussions regarding the algorithm for the engine that controls the icons distribution on the screen.</p>
+
+<p>Check it out:
+<iframe width="560" height="420" src="http://www.youtube.com/embed/eJcTBJaPRZg?color=white&theme=light"></iframe></p>
+
+<p>The source code is not available yet, but it will be published soon in a git repository near you, then you will be able to check how animated layouts were used and also see that algorithm I've just mentined. So, stay tuned!</p>
+]]></content>
+  </entry>
+  
+</feed>

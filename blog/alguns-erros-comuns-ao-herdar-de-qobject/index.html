@@ -1,0 +1,438 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Alguns erros comuns ao herdar de QObject - anselmolsm.org</title>
+  <meta name="author" content="Anselmo L. S. Melo">
+
+  
+  <meta name="description" content="Originalmente publicado em http://blog.qtlabs.org.br/2011/07/11/alguns-erros-comuns-ao-herdar-de-qobject Com o passar do tempo, os erros de uma &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://anselmolsm.org/blog/alguns-erros-comuns-ao-herdar-de-qobject/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/blog/atom.xml" rel="alternate" title="anselmolsm.org" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Lusitana:400,700' rel='stylesheet' type='text/css'>
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-6093467-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">anselmolsm.org</a></h1>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/blog/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:anselmolsm.org" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Home</a></li>
+  <li><a href="/blog">Blog</a></li>
+  <li><a href="/links">My Links</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Alguns erros comuns ao herdar de QObject</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-07-11T00:00:00-03:00" pubdate data-updated="true">July 11, 2011</time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p><em>Originalmente publicado em http://blog.qtlabs.org.br/2011/07/11/alguns-erros-comuns-ao-herdar-de-qobject</em></p>
+
+<p>Com o passar do tempo, os erros de uma determinada ferramenta tornam-se familiares de tal forma que solucioná-los passa a ser automático. Entretanto, muitos destes erros não são triviais entre iniciantes, que vez ou outra acabam gastando tempo para contorná-los.
+Pois vamos tratar de dois que ultimamente tem sido a causa frequente de vários tópicos criados na <a href="http://developer.qt.nokia.com/">Qt Devnet</a>. Portanto, se você ainda está se familiarizando com Qt, o texto de hoje é para você. Se você já tem alguma experiência com Qt, vai se lembrar da primeira vez que passou por isso ;)</p>
+
+<p>Consideremos a seguinte declaração de classe:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>class MyClass:public QObject
+</span><span class='line'>{
+</span><span class='line'>    public:
+</span><span class='line'>    MyClass(QObject * parent=0);
+</span><span class='line'>
+</span><span class='line'>signals:
+</span><span class='line'>    void aSignal();
+</span><span class='line'>
+</span><span class='line'>public slots:
+</span><span class='line'>    void aSlot();
+</span><span class='line'>};</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Pois bem, você declarou uma classe herdando de QObject e criou um novo sinal e um novo slot. Após conectar este sinal e/ou este slot, você partiu feliz para testar sua aplicação porém nada funciona e você recebe o seguinte alerta:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>No such signal QObject::aSignal()</span></code></pre></td></tr></table></div></figure>
+
+
+<p>E por alguns instantes a pergunta que fica é:</p>
+
+<blockquote><p>Mas afinal, o que terá acontecido?</p></blockquote>
+
+
+<p>Aí que entra um detalhe que passa muitas vezes despercebido entre aqueles que partem estusiasmados para o código: Você esqueceu-se da macro Q_OBJECT na declaração de sua classe. Com alguma prática, alguns resolverão a questão rapidamente e serão felizes. No entanto, outros adicionarão a macro citada e acabarão agora &#8220;ouvindo&#8221; as seguintes palavras do compilador:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>main.cpp:(.text+0x54): undefined reference to `vtable for MyClass'</span></code></pre></td></tr></table></div></figure>
+
+
+<p>(ok, ok, senhor purista, é um erro do <em>linker</em>, não do compilador)</p>
+
+<p>Afinal, por que eu disse que alguns resolverão este problema e serão felizes e outros enfrentarão este erro? O que eles fizeram de diferente?</p>
+
+<p>Bem, caro leitor, a diferença é que o primeiro lembrou-se de executar <strong><em>qmake</em></strong> depois de adicionar a macro Q_OBJECT, enquanto o segundo partiu ansioso para apenas compilar o projeto.</p>
+
+<p><strong>qmake? Q_OBJECT?</strong></p>
+
+<p>Bem, vamos entender o que aconteceu.</p>
+
+<p>Conforme está escrito na documentação, quando uma classe herda QObject, seja direta ou indiretamente, <em>e</em> declara novas propriedades <a href="http://doc.qt.nokia.com/4.7/qobject.html#Q_PROPERTY">Q_PROPERTY</a> e/ou novos sinais e/ou slots (vale também para reimplementações), torna-se necessária a adição da macro Q_OBJECT em sua declaração. De forma resumida, esta macro serve como indicador de que o <a href="http://doc.qt.nokia.com/4.7/moc.html">Qt Meta-Object Compiler</a> - mas pode chamar de <strong>moc</strong> - deve processar esta classe e gerar o arquivo .moc correspondete.</p>
+
+<p>Assim, na primeira situação descrita no início deste texto, o código de fato herda de QObject e declara um novo sinal e um novo slot, porém não apresenta a macro Q_OBJECT. A classe é compilada normalmente, entretanto, não acontece a resolução das informações adicionadas pelo sistema de meta objetos do Qt (no exemplo, o sinal aSignal() não é encontrado). Na sequência, quando segundo usuário adiciona Q_OBJECT e parte direto para o <strong><em>make</em></strong>, acontece um erro de ligação pois falta o arquivo .moc correspondente, onde estariam os símbolos faltantes. Este arquivo .moc não foi gerado pois, ao não executar qmake, não houve a verificação da necessidade do moc entrar em ação.</p>
+
+<p>Portanto, a declaração correta da classe MyClass é:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>class MyClass:public QObject
+</span><span class='line'>{
+</span><span class='line'>    Q_OBJECT
+</span><span class='line'>public:
+</span><span class='line'>    MyClass(QObject * parent=0);
+</span><span class='line'>
+</span><span class='line'>signals:
+</span><span class='line'>    void aSignal();
+</span><span class='line'>
+</span><span class='line'>public slots:
+</span><span class='line'>    void aSlot();
+</span><span class='line'>};</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Existe ainda um outro caso recorrente cuja solução apresenta uma particularidade. Consideremos a nossa class MyClass,  agora declarada no mesmo arquivo que a função main (digamos, num arquivo chamado main.cpp):</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>class MyClass:public QObject
+</span><span class='line'>{
+</span><span class='line'>    Q_OBJECT
+</span><span class='line'>public:
+</span><span class='line'>    MyClass(QObject * parent=0)
+</span><span class='line'>        : QObject(parent)
+</span><span class='line'>    {
+</span><span class='line'>    }
+</span><span class='line'>signals:
+</span><span class='line'>    void aSignal();
+</span><span class='line'>
+</span><span class='line'>public slots:
+</span><span class='line'>    void aSlot()
+</span><span class='line'>    {
+</span><span class='line'>    }
+</span><span class='line'>};
+</span><span class='line'>
+</span><span class='line'>int main(int argc, char *argv[])
+</span><span class='line'>{
+</span><span class='line'>    QApplication app(argc, argv);
+</span><span class='line'>
+</span><span class='line'>    MyClass myClass;
+</span><span class='line'>
+</span><span class='line'>    return app.exec();
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<p><em>O que há de diferente?</em> - Pergunta você.</p>
+
+<p>A princípio nada demais. Porém, atente ao fato da classe MyClass agora estar no mesmo arquivo que a função main. Ao tentar compilar esta versão do nosso exemplo, mais uma vez aparecerá um erro parecido com:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>undefined reference to `vtable for MyClass'</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Ao observar a saída da compilação, você nota que o moc nem é executado. Assim, a classe que necessita ser tratada por ele passa em branco. Para contornar este caso, insira a linha:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>#include "main.moc"</span></code></pre></td></tr></table></div></figure>
+
+
+<p>após a declaração da classe e execute qmake. Isso forçará a execução do moc para criar este arquivo main.moc onde estarão os símbolos referentes aos sinais e slots. (Sim, existe <strong><em>automake</em></strong>, mas não estou tratando de ferramentas adicionais aqui, ok?).</p>
+
+<p>Hoje ficamos concentrados na solução de erros comuns envolvendo moc e a macro Q_OBJECT. Futuramente voltaremos a abordar o tema, entrando em mais detalhes quanto ao papel exercido pelo moc e o conteúdo dos arquivos por ele gerados.</p>
+
+<p>Tem mais algum caso comum de erro que seria interessante abordarmos, para auxiliar os iniciantes? Envie suas sugestões ;)</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Anselmo L. S. Melo</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-07-11T00:00:00-03:00" pubdate data-updated="true">July 11, 2011</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/qt/'>Qt</a>, <a class='category' href='/blog/categories/qt-labs-brazil/'>Qt Labs Brazil</a>, <a class='category' href='/blog/categories/work/'>Work</a>, <a class='category' href='/blog/categories/pt-br/'>pt_BR</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://anselmolsm.org/blog/alguns-erros-comuns-ao-herdar-de-qobject/" data-via="" data-counturl="http://anselmolsm.org/blog/alguns-erros-comuns-ao-herdar-de-qobject/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/qt-contributors-summit/" title="Previous Post: Qt Contributors' Summit">&laquo; Qt Contributors' Summit</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/qt-platform-abstraction-lighthouse-para-os-intimos/" title="Next Post: Qt Platform Abstraction, Lighthouse para os íntimos">Qt Platform Abstraction, Lighthouse para os íntimos &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/a-few-words-about-2012/">A few words about 2012</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/qt-5-uihelpers/">Qt 5 UiHelpers</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/working-in-the-open-again/">Working in the open again</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/qt-platform-abstraction-lighthouse-para-os-intimos/">Qt Platform Abstraction, Lighthouse para os íntimos</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/alguns-erros-comuns-ao-herdar-de-qobject/">Alguns erros comuns ao herdar de QObject</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Anselmo L. S. Melo -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'anselmolsm';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://anselmolsm.org/blog/alguns-erros-comuns-ao-herdar-de-qobject/';
+        var disqus_url = 'http://anselmolsm.org/blog/alguns-erros-comuns-ao-herdar-de-qobject/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

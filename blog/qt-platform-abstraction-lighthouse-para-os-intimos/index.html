@@ -1,0 +1,331 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Qt Platform Abstraction, Lighthouse para os íntimos - anselmolsm.org</title>
+  <meta name="author" content="Anselmo L. S. Melo">
+
+  
+  <meta name="description" content="Originalmente publicado em http://blog.qtlabs.org.br/2012/03/16/qt-platform-abstraction-lighthouse-para-os-intimos/ É do conhecimento de muitos que &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://anselmolsm.org/blog/qt-platform-abstraction-lighthouse-para-os-intimos/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/blog/atom.xml" rel="alternate" title="anselmolsm.org" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Lusitana:400,700' rel='stylesheet' type='text/css'>
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-6093467-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">anselmolsm.org</a></h1>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/blog/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:anselmolsm.org" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Home</a></li>
+  <li><a href="/blog">Blog</a></li>
+  <li><a href="/links">My Links</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Qt Platform Abstraction, Lighthouse para os íntimos</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-03-16T00:00:00-03:00" pubdate data-updated="true">March 16, 2012</time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p><em>Originalmente publicado em http://blog.qtlabs.org.br/2012/03/16/qt-platform-abstraction-lighthouse-para-os-intimos/</em></p>
+
+<p>É do conhecimento de muitos que Qt é oficialmente suportado em várias plataformas. Recentemente, graças aos esforços da comunidade, novas plataformas passaram a ser suportadas - ainda de forma não oficial - com destaque para Android e iOS. No <em>post</em> de hoje, faremos uma breve introdução à nova estrutura que tem como objetivo simplificar novos <em>ports</em> de Qt, o QPA - Qt Platform Abstraction, <em>codename</em> Lighthouse.</p></p>
+
+<p><strong><em>Começo</em></strong></p>
+
+<p>Em meados de 2009 alguns dos desenvolvedores baseados em Oslo resolveram refatorar o código existente no chamado Qt for Embedded, que é, resumidamente, focada em dispositivos embarcados sem Xorg (no caso do Qt for Embedded Linux), usando <em>framebuffer</em> para a saída gráfica. Nele, existe o QWS - Q Windowing System - que faz as vezes de sistema de janelas simples. A idéia de refatorar tal código era justamente para reduzir a dependência do QWS, porém foram anos de &#8220;contaminação&#8221; de código e essa tarefa demonstrou-se maior do que o esperado. Foi então que surgiu uma ideia:</p>
+
+<blockquote>Quão difícil seria remover todo o código específico de plataformas e ter um novo <em>port</em> compilável?</blockquote>
+
+
+<p>Parte do plano era aproveitar que Qt já contava com a Raster Engine e os <a href="http://blog.qt.digia.com/blog/2007/08/09/qt-invaded-by-aliens-the-end-of-all-flicker">Alien Widgets já haviam invadido e fixado residência no Qt 4.4</a>. Uma semana mais tarde, já existia um código para QtGui independente de plataforma e compilado com sucesso.</p>
+
+<p><strong><em>Raster Engine? Alien widgets?</em></strong></p>
+
+<p>Ambos são potenciais temas para novos posts, segue uma rápida (e, digamos, superficial) explicação para que possamos seguir com nosso assunto:</p>
+
+<ul>
+<li><em>Raster Engine</em> é um sistema gráfico implementado totalmente em software, ou seja, de forma independente do hardware onde está sendo executado. Foi introduzido no Qt 4.0 após repetidas tentativas de utilizar GDI e GDI+ (APIs nativas do Microsoft Windows) para backend gráfico de Qt no MicrosoftWindows.</li>
+<li><em>Alien Widgets</em> é o nome dado à uma forma como os widgets são criados na tela. Para nossa rápida explicação de hoje, usaremos terminologia do Xorg. Tradicionalmente, cada widget era na verdade uma &#8220;janela do X&#8221;. Assim, uma tela com o que costumamos chamar de janela, contendo um botão e um checkbox teria, em termos de estruturas do X, 3 janelas, sendo que 2 delas aninhadas em uma maior. Essa combinação toda era grande responsável por efeitos visuais indesejáveis quando redimensionávamos aplicações, pois o Xserver precisava coordenar a movimentação e redimensionamento desses componentes, o que não acabava bem. Com os Alien Widgets acontece diferente: O Xserver conhece apenas a janela <em>top level</em>, os widgets dentro dela ficam por conta da maquinaria interna do Qt.</li>
+</ul>
+
+
+<p><strong><em>Voltando ao assunto</em></strong></p>
+
+<p>O próximo passo seria conseguir criar um processo único com uma janela <em>full-screen</em> utlizando <em>framebuffer</em>, aproveitando-se dessa infra-estrutura. Com o sucesso desse experimento, o projeto tomou forma e recebeu o nome de <em>Lighthouse,</em> tendo como objetivo: &#8220;Como tornar mais fácil Qt suportar diferentes hardwares gráficos&#8221;. Com <em>Lighthouse</em>, um <em>port</em> passa a precisar de um <em>plugin</em> que implemente a representação de janelas (<em>window surfaces</em>) para dado cliente (ex: x11 client) e funcionalidades para envio e recebimento de mensagens para o servidor do sistema de janelas (window system server). Um primeiro <em>port</em> teste feito, utilizando QImage como <em>display device</em>, precisou deapenas 147 linhas de código. Prefere uma comparação de uma classe real? qwidget_x11.cpp: 2424 linhas, qwidget_qpa.cpp: 671 linhas. O código correspondente à essa reengenharia já encontra-se integrado no branch 4.8, com o nome <em>Qt Platform Abstraction</em>. Portanto, aqueles que tiverem o repositório clonado podem observar em src/gui/kernel a existência de arquivos com o sufixo _qpa.h:</p>
+
+<ul>
+<li>qplatformclipboard_qpa.h</li>
+<li>qplatformcursor_qpa.h</li>
+<li>qplatformeventloopintegration_qpa.h</li>
+<li>qplatformglcontext_qpa.h</li>
+<li>qplatformintegrationplugin_qpa.h</li>
+<li>qplatformintegration_qpa.h</li>
+<li>qplatformnativeinterface_qpa.h</li>
+<li>qplatformscreen_qpa.h</li>
+<li>qplatformwindowformat_qpa.h</li>
+<li>qplatformwindow_qpa.h</li>
+</ul>
+
+
+<p>Analisando os nomes desses arquivos (e das classes contidas neles) notamos os componentes que devem ser implementados em um novo port de Qt. Além dos já mencionados ports para Android (Necessitas) e iOS, são outros exemplos que aproveitaram do Lighthouse:</p>
+
+<p>libCaca: convertendo widgets para modo texto. Útil? Não sei, mas vale para exemplificar como ficou mais fácil <em>portar</em> Qt =)</p>
+
+<iframe width="560" height="420" src="http://www.youtube.com/embed/ZJyF99uqSbY?color=white&theme=light"></iframe>
+
+
+<p>Qt on <a href="http://en.wikipedia.org/wiki/Google_Native_Client">NaCl</a>:</p>
+
+<iframe width="560" height="420" src="http://www.youtube.com/embed/U6xZsqcA-Sk?color=white&theme=light"></iframe>
+
+
+<p>A tarefa de suportar o Wayland também foi beneficiada por essa nova estrutura, que também está tendo um importante papel no desenvovimento do futuro Qt5. Para referência, os artigos no Qt Labs a respeito desse assunto estão dentro da <a href="http://blog.qt.digia.com/blog/category/lighthouse/">categoria lighthouse</a>.</p>
+
+<p>Até a próxima =)</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Anselmo L. S. Melo</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-03-16T00:00:00-03:00" pubdate data-updated="true">March 16, 2012</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/qt/'>Qt</a>, <a class='category' href='/blog/categories/qt-labs-brazil/'>Qt Labs Brazil</a>, <a class='category' href='/blog/categories/work/'>Work</a>, <a class='category' href='/blog/categories/pt-br/'>pt_BR</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://anselmolsm.org/blog/qt-platform-abstraction-lighthouse-para-os-intimos/" data-via="" data-counturl="http://anselmolsm.org/blog/qt-platform-abstraction-lighthouse-para-os-intimos/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/alguns-erros-comuns-ao-herdar-de-qobject/" title="Previous Post: Alguns erros comuns ao herdar de QObject">&laquo; Alguns erros comuns ao herdar de QObject</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/working-in-the-open-again/" title="Next Post: Working in the open again">Working in the open again &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/a-few-words-about-2012/">A few words about 2012</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/qt-5-uihelpers/">Qt 5 UiHelpers</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/working-in-the-open-again/">Working in the open again</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/qt-platform-abstraction-lighthouse-para-os-intimos/">Qt Platform Abstraction, Lighthouse para os íntimos</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/alguns-erros-comuns-ao-herdar-de-qobject/">Alguns erros comuns ao herdar de QObject</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Anselmo L. S. Melo -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'anselmolsm';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://anselmolsm.org/blog/qt-platform-abstraction-lighthouse-para-os-intimos/';
+        var disqus_url = 'http://anselmolsm.org/blog/qt-platform-abstraction-lighthouse-para-os-intimos/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

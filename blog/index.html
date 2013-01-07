@@ -365,6 +365,299 @@ The good part is: This project we were working on was developed using Qt and QML
       
   <header>
     
+      <h1 class="entry-title"><a href="/blog/qt-platform-abstraction-lighthouse-para-os-intimos/">Qt Platform Abstraction, Lighthouse para os íntimos</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-03-16T00:00:00-03:00" pubdate data-updated="true">March 16, 2012</time>
+        
+         | <a href="/blog/qt-platform-abstraction-lighthouse-para-os-intimos/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><em>Originalmente publicado em http://blog.qtlabs.org.br/2012/03/16/qt-platform-abstraction-lighthouse-para-os-intimos/</em></p>
+
+<p>É do conhecimento de muitos que Qt é oficialmente suportado em várias plataformas. Recentemente, graças aos esforços da comunidade, novas plataformas passaram a ser suportadas - ainda de forma não oficial - com destaque para Android e iOS. No <em>post</em> de hoje, faremos uma breve introdução à nova estrutura que tem como objetivo simplificar novos <em>ports</em> de Qt, o QPA - Qt Platform Abstraction, <em>codename</em> Lighthouse.</p></p>
+
+<p><strong><em>Começo</em></strong></p>
+
+<p>Em meados de 2009 alguns dos desenvolvedores baseados em Oslo resolveram refatorar o código existente no chamado Qt for Embedded, que é, resumidamente, focada em dispositivos embarcados sem Xorg (no caso do Qt for Embedded Linux), usando <em>framebuffer</em> para a saída gráfica. Nele, existe o QWS - Q Windowing System - que faz as vezes de sistema de janelas simples. A idéia de refatorar tal código era justamente para reduzir a dependência do QWS, porém foram anos de &#8220;contaminação&#8221; de código e essa tarefa demonstrou-se maior do que o esperado. Foi então que surgiu uma ideia:</p>
+
+<blockquote>Quão difícil seria remover todo o código específico de plataformas e ter um novo <em>port</em> compilável?</blockquote>
+
+
+<p>Parte do plano era aproveitar que Qt já contava com a Raster Engine e os <a href="http://blog.qt.digia.com/blog/2007/08/09/qt-invaded-by-aliens-the-end-of-all-flicker">Alien Widgets já haviam invadido e fixado residência no Qt 4.4</a>. Uma semana mais tarde, já existia um código para QtGui independente de plataforma e compilado com sucesso.</p>
+
+<p><strong><em>Raster Engine? Alien widgets?</em></strong></p>
+
+<p>Ambos são potenciais temas para novos posts, segue uma rápida (e, digamos, superficial) explicação para que possamos seguir com nosso assunto:</p>
+
+<ul>
+<li><em>Raster Engine</em> é um sistema gráfico implementado totalmente em software, ou seja, de forma independente do hardware onde está sendo executado. Foi introduzido no Qt 4.0 após repetidas tentativas de utilizar GDI e GDI+ (APIs nativas do Microsoft Windows) para backend gráfico de Qt no MicrosoftWindows.</li>
+<li><em>Alien Widgets</em> é o nome dado à uma forma como os widgets são criados na tela. Para nossa rápida explicação de hoje, usaremos terminologia do Xorg. Tradicionalmente, cada widget era na verdade uma &#8220;janela do X&#8221;. Assim, uma tela com o que costumamos chamar de janela, contendo um botão e um checkbox teria, em termos de estruturas do X, 3 janelas, sendo que 2 delas aninhadas em uma maior. Essa combinação toda era grande responsável por efeitos visuais indesejáveis quando redimensionávamos aplicações, pois o Xserver precisava coordenar a movimentação e redimensionamento desses componentes, o que não acabava bem. Com os Alien Widgets acontece diferente: O Xserver conhece apenas a janela <em>top level</em>, os widgets dentro dela ficam por conta da maquinaria interna do Qt.</li>
+</ul>
+
+
+<p><strong><em>Voltando ao assunto</em></strong></p>
+
+<p>O próximo passo seria conseguir criar um processo único com uma janela <em>full-screen</em> utlizando <em>framebuffer</em>, aproveitando-se dessa infra-estrutura. Com o sucesso desse experimento, o projeto tomou forma e recebeu o nome de <em>Lighthouse,</em> tendo como objetivo: &#8220;Como tornar mais fácil Qt suportar diferentes hardwares gráficos&#8221;. Com <em>Lighthouse</em>, um <em>port</em> passa a precisar de um <em>plugin</em> que implemente a representação de janelas (<em>window surfaces</em>) para dado cliente (ex: x11 client) e funcionalidades para envio e recebimento de mensagens para o servidor do sistema de janelas (window system server). Um primeiro <em>port</em> teste feito, utilizando QImage como <em>display device</em>, precisou deapenas 147 linhas de código. Prefere uma comparação de uma classe real? qwidget_x11.cpp: 2424 linhas, qwidget_qpa.cpp: 671 linhas. O código correspondente à essa reengenharia já encontra-se integrado no branch 4.8, com o nome <em>Qt Platform Abstraction</em>. Portanto, aqueles que tiverem o repositório clonado podem observar em src/gui/kernel a existência de arquivos com o sufixo _qpa.h:</p>
+
+<ul>
+<li>qplatformclipboard_qpa.h</li>
+<li>qplatformcursor_qpa.h</li>
+<li>qplatformeventloopintegration_qpa.h</li>
+<li>qplatformglcontext_qpa.h</li>
+<li>qplatformintegrationplugin_qpa.h</li>
+<li>qplatformintegration_qpa.h</li>
+<li>qplatformnativeinterface_qpa.h</li>
+<li>qplatformscreen_qpa.h</li>
+<li>qplatformwindowformat_qpa.h</li>
+<li>qplatformwindow_qpa.h</li>
+</ul>
+
+
+<p>Analisando os nomes desses arquivos (e das classes contidas neles) notamos os componentes que devem ser implementados em um novo port de Qt. Além dos já mencionados ports para Android (Necessitas) e iOS, são outros exemplos que aproveitaram do Lighthouse:</p>
+
+<p>libCaca: convertendo widgets para modo texto. Útil? Não sei, mas vale para exemplificar como ficou mais fácil <em>portar</em> Qt =)</p>
+
+<iframe width="560" height="420" src="http://www.youtube.com/embed/ZJyF99uqSbY?color=white&theme=light"></iframe>
+
+
+<p>Qt on <a href="http://en.wikipedia.org/wiki/Google_Native_Client">NaCl</a>:</p>
+
+<iframe width="560" height="420" src="http://www.youtube.com/embed/U6xZsqcA-Sk?color=white&theme=light"></iframe>
+
+
+<p>A tarefa de suportar o Wayland também foi beneficiada por essa nova estrutura, que também está tendo um importante papel no desenvovimento do futuro Qt5. Para referência, os artigos no Qt Labs a respeito desse assunto estão dentro da <a href="http://blog.qt.digia.com/blog/category/lighthouse/">categoria lighthouse</a>.</p>
+
+<p>Até a próxima =)</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/alguns-erros-comuns-ao-herdar-de-qobject/">Alguns erros comuns ao herdar de QObject</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-07-11T00:00:00-03:00" pubdate data-updated="true">July 11, 2011</time>
+        
+         | <a href="/blog/alguns-erros-comuns-ao-herdar-de-qobject/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><em>Originalmente publicado em http://blog.qtlabs.org.br/2011/07/11/alguns-erros-comuns-ao-herdar-de-qobject</em></p>
+
+<p>Com o passar do tempo, os erros de uma determinada ferramenta tornam-se familiares de tal forma que solucioná-los passa a ser automático. Entretanto, muitos destes erros não são triviais entre iniciantes, que vez ou outra acabam gastando tempo para contorná-los.
+Pois vamos tratar de dois que ultimamente tem sido a causa frequente de vários tópicos criados na <a href="http://developer.qt.nokia.com/">Qt Devnet</a>. Portanto, se você ainda está se familiarizando com Qt, o texto de hoje é para você. Se você já tem alguma experiência com Qt, vai se lembrar da primeira vez que passou por isso ;)</p>
+
+<p>Consideremos a seguinte declaração de classe:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>class MyClass:public QObject
+</span><span class='line'>{
+</span><span class='line'>    public:
+</span><span class='line'>    MyClass(QObject * parent=0);
+</span><span class='line'>
+</span><span class='line'>signals:
+</span><span class='line'>    void aSignal();
+</span><span class='line'>
+</span><span class='line'>public slots:
+</span><span class='line'>    void aSlot();
+</span><span class='line'>};</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Pois bem, você declarou uma classe herdando de QObject e criou um novo sinal e um novo slot. Após conectar este sinal e/ou este slot, você partiu feliz para testar sua aplicação porém nada funciona e você recebe o seguinte alerta:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>No such signal QObject::aSignal()</span></code></pre></td></tr></table></div></figure>
+
+
+<p>E por alguns instantes a pergunta que fica é:</p>
+
+<blockquote><p>Mas afinal, o que terá acontecido?</p></blockquote>
+
+
+<p>Aí que entra um detalhe que passa muitas vezes despercebido entre aqueles que partem estusiasmados para o código: Você esqueceu-se da macro Q_OBJECT na declaração de sua classe. Com alguma prática, alguns resolverão a questão rapidamente e serão felizes. No entanto, outros adicionarão a macro citada e acabarão agora &#8220;ouvindo&#8221; as seguintes palavras do compilador:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>main.cpp:(.text+0x54): undefined reference to `vtable for MyClass'</span></code></pre></td></tr></table></div></figure>
+
+
+<p>(ok, ok, senhor purista, é um erro do <em>linker</em>, não do compilador)</p>
+
+<p>Afinal, por que eu disse que alguns resolverão este problema e serão felizes e outros enfrentarão este erro? O que eles fizeram de diferente?</p>
+
+<p>Bem, caro leitor, a diferença é que o primeiro lembrou-se de executar <strong><em>qmake</em></strong> depois de adicionar a macro Q_OBJECT, enquanto o segundo partiu ansioso para apenas compilar o projeto.</p>
+
+<p><strong>qmake? Q_OBJECT?</strong></p>
+
+<p>Bem, vamos entender o que aconteceu.</p>
+
+<p>Conforme está escrito na documentação, quando uma classe herda QObject, seja direta ou indiretamente, <em>e</em> declara novas propriedades <a href="http://doc.qt.nokia.com/4.7/qobject.html#Q_PROPERTY">Q_PROPERTY</a> e/ou novos sinais e/ou slots (vale também para reimplementações), torna-se necessária a adição da macro Q_OBJECT em sua declaração. De forma resumida, esta macro serve como indicador de que o <a href="http://doc.qt.nokia.com/4.7/moc.html">Qt Meta-Object Compiler</a> - mas pode chamar de <strong>moc</strong> - deve processar esta classe e gerar o arquivo .moc correspondete.</p>
+
+<p>Assim, na primeira situação descrita no início deste texto, o código de fato herda de QObject e declara um novo sinal e um novo slot, porém não apresenta a macro Q_OBJECT. A classe é compilada normalmente, entretanto, não acontece a resolução das informações adicionadas pelo sistema de meta objetos do Qt (no exemplo, o sinal aSignal() não é encontrado). Na sequência, quando segundo usuário adiciona Q_OBJECT e parte direto para o <strong><em>make</em></strong>, acontece um erro de ligação pois falta o arquivo .moc correspondente, onde estariam os símbolos faltantes. Este arquivo .moc não foi gerado pois, ao não executar qmake, não houve a verificação da necessidade do moc entrar em ação.</p>
+
+<p>Portanto, a declaração correta da classe MyClass é:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>class MyClass:public QObject
+</span><span class='line'>{
+</span><span class='line'>    Q_OBJECT
+</span><span class='line'>public:
+</span><span class='line'>    MyClass(QObject * parent=0);
+</span><span class='line'>
+</span><span class='line'>signals:
+</span><span class='line'>    void aSignal();
+</span><span class='line'>
+</span><span class='line'>public slots:
+</span><span class='line'>    void aSlot();
+</span><span class='line'>};</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Existe ainda um outro caso recorrente cuja solução apresenta uma particularidade. Consideremos a nossa class MyClass,  agora declarada no mesmo arquivo que a função main (digamos, num arquivo chamado main.cpp):</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>class MyClass:public QObject
+</span><span class='line'>{
+</span><span class='line'>    Q_OBJECT
+</span><span class='line'>public:
+</span><span class='line'>    MyClass(QObject * parent=0)
+</span><span class='line'>        : QObject(parent)
+</span><span class='line'>    {
+</span><span class='line'>    }
+</span><span class='line'>signals:
+</span><span class='line'>    void aSignal();
+</span><span class='line'>
+</span><span class='line'>public slots:
+</span><span class='line'>    void aSlot()
+</span><span class='line'>    {
+</span><span class='line'>    }
+</span><span class='line'>};
+</span><span class='line'>
+</span><span class='line'>int main(int argc, char *argv[])
+</span><span class='line'>{
+</span><span class='line'>    QApplication app(argc, argv);
+</span><span class='line'>
+</span><span class='line'>    MyClass myClass;
+</span><span class='line'>
+</span><span class='line'>    return app.exec();
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<p><em>O que há de diferente?</em> - Pergunta você.</p>
+
+<p>A princípio nada demais. Porém, atente ao fato da classe MyClass agora estar no mesmo arquivo que a função main. Ao tentar compilar esta versão do nosso exemplo, mais uma vez aparecerá um erro parecido com:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>undefined reference to `vtable for MyClass'</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Ao observar a saída da compilação, você nota que o moc nem é executado. Assim, a classe que necessita ser tratada por ele passa em branco. Para contornar este caso, insira a linha:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>#include "main.moc"</span></code></pre></td></tr></table></div></figure>
+
+
+<p>após a declaração da classe e execute qmake. Isso forçará a execução do moc para criar este arquivo main.moc onde estarão os símbolos referentes aos sinais e slots. (Sim, existe <strong><em>automake</em></strong>, mas não estou tratando de ferramentas adicionais aqui, ok?).</p>
+
+<p>Hoje ficamos concentrados na solução de erros comuns envolvendo moc e a macro Q_OBJECT. Futuramente voltaremos a abordar o tema, entrando em mais detalhes quanto ao papel exercido pelo moc e o conteúdo dos arquivos por ele gerados.</p>
+
+<p>Tem mais algum caso comum de erro que seria interessante abordarmos, para auxiliar os iniciantes? Envie suas sugestões ;)</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
       <h1 class="entry-title"><a href="/blog/qt-contributors-summit/">Qt Contributors&#8217; Summit</a></h1>
     
     
@@ -618,103 +911,6 @@ During the sprint, interesting discussions about MeeGo, new opportunities, QML a
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/madde-qt-4-7/">MADDE + Qt 4.7</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2010-06-10T00:00:00-03:00" pubdate data-updated="true">June 10, 2010</time>
-        
-         | <a href="/blog/madde-qt-4-7/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://wiki.maemo.org/Maemo_5/PR1.2">Maemo 5 PR 1.2</a> is out with Qt 4.6.2  installed, so developers now can create applications with Qt 4.6 using either the <a href="http://wiki.maemo.org/Documentation/Maemo_5_Final_SDK_Installation">official scratchbox based SDK</a> or <a href="http://wiki.maemo.org/MADDE">MADDE</a> (remember, &#8221;<strong>MADDE</strong> is currently a <strong>technology preview</strong>.&#8221;)</p>
-
-<p>BUT&#8230; there are people who prefer &#8221;<a href="http://www.youtube.com/watch?v=q95BRB_BPiU">Livin&#8217; on the Edge</a>&#8221;. If you are one of those and already want/need to develop with Qt 4.7 (<em>not released yet!</em>) for Maemo 5, using MADDE to build your applications / packages, here is an update to the procedure first <a href="http://labs.trolltech.com/blogs/2010/02/08/qt-46-for-maemo-5-applications-on-mac-os-x-take-ii/">published by the troll ﻿Harald Fernengel</a> (AKA harryF). Although the title says &#8220;on MacOS X&#8221;, the steps also work on Linux.</p>
-
-<p>Step-by-step:</p>
-
-<ul>
-<li>Install MADDE. <a href="http://tablets-dev.nokia.com/MADDE.php">Download it here</a>.</li>
-<li>If you are <strong>not</strong> using a Debian based distro, you need to install the &#8220;﻿﻿Tools for Debian Packages&#8221; package of your distribution (e.g. &#8220;deb&#8221; on openSUSE, sys-apps/debianutils on Gentoo).</li>
-<li>Download the script ﻿<a href="http://anselmolsm.org/public/qt/madde-qt47/fetch-qt4.7.0-latest.sh">fetch-qt4.7.0-latest.sh</a>. This script downloads the libqt4-experimental packages from repository.maemo.org and installs then in your MADDE - Before you run the script, remember to adjust the MADDE_PATH variable according to the path you installed MADDE.</li>
-<li>Download <a href="https://www.amazon.com/clouddrive/share?s=fX_jj9QbRhMmliRXU_06OE">qt4-tools-latest.tar.gz</a>. It contains the Qt tools compiled for the correspondent version, configured for cross compiling. Extract to /opt/qt4-maemo5.</li>
-<li>Check if <strong>mad</strong> is in your PATH.</li>
-</ul>
-
-
-<p>To build an application using your fresh environment, run <strong>/opt/qt4-maemo5/bin/qmake &amp;&amp; make .</strong></p>
-
-<p>If you succeeded in the setup process, this should result in a armel binary ready to run on N900. To generate a deb package, you can use the tools offered by MADDE to build a skeleton of debian package and so on.</p>
-
-<p>To run your application on N900, install libqt4-experimental-* packages. If QtQuick (QML) is part of your plans, qmlviewer  is in the package qt4-experimental-declarative-qmlviewer .</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/so-pra-nao-passar-em-branco/">Só pra não passar em branco =)</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2010-02-21T00:00:00-03:00" pubdate data-updated="true">February 21, 2010</time>
-        
-         | <a href="/blog/so-pra-nao-passar-em-branco/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Domingo passado fui ao estádio do Pacembu ver Santos 2 x 1 Rio Claro. Na segunda-feira li na Folha de S. Paulo a <a href="http://blogdotorero.blog.uol.com.br/arch2010-02-01_2010-02-28.html#2010_02-16_10_36_41-10024933-0">coluna de José Roberto Torero</a>, que também foi ao estádio e narrou suas desventuras.</p>
-
-<p>Como passei por situações semelhantes, mandei um breve relato por e-mail. O texto foi publicado no blog do colunista e pode ser conferido <a href="http://blogdotorero.blog.uol.com.br/arch2010-02-01_2010-02-28.html#2010_02-19_10_28_16-10024933-0">aqui</a>.</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -742,11 +938,11 @@ During the sprint, interesting discussions about MeeGo, new opportunities, QML a
       </li>
     
       <li class="post">
-        <a href="/blog/qt-contributors-summit/">Qt Contributors&#8217; Summit</a>
+        <a href="/blog/qt-platform-abstraction-lighthouse-para-os-intimos/">Qt Platform Abstraction, Lighthouse para os íntimos</a>
       </li>
     
       <li class="post">
-        <a href="/blog/meego-conf-2011-san-francisco/">Meego Conf 2011 - San Francisco</a>
+        <a href="/blog/alguns-erros-comuns-ao-herdar-de-qobject/">Alguns erros comuns ao herdar de QObject</a>
       </li>
     
   </ul>
@@ -763,7 +959,7 @@ During the sprint, interesting discussions about MeeGo, new opportunities, QML a
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2012 - Anselmo L. S. Melo -
+  Copyright &copy; 2013 - Anselmo L. S. Melo -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 
